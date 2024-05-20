@@ -10,7 +10,7 @@ export const App = () => {
   return (
     <>
       <Header />
-      <Button>Hello Button</Button>
+      <Button className>Hello Button</Button>
     </>
   )
 }

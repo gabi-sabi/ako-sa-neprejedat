@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { GrClose } from "react-icons/gr";
 import { GiHamburgerMenu } from "react-icons/gi";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
 export const Header = () => {
   const [showMenu, setShowMenu] = useState(false);
@@ -52,6 +53,10 @@ export const Header = () => {
             <a href="#" className="hover:text-gray-500">
               Hry
             </a>
+            <Avatar>
+              <AvatarImage src="https://github.com/shadcn.png" />
+              <AvatarFallback>CN</AvatarFallback>
+            </Avatar>
           </>
         )}
       </nav>
