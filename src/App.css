@@ -1,22 +1,24 @@
-@import url('https://fonts.googleapis.com/css2?family=Agbalumo&family=Poppins:wght@400;700&display=swap');
+:root {
+  --green: #A5DD9B;
+  --light-green: #C5EBAA;
+  --yellow: #F6F193;
+  --nude: #F2C18D;
+  --text: black;
+  --text-contrast: white;
+  --error: #FF7D8B;
+}
 
 * {
-  box-sizing: border-box;
-}
-
-html {
-  font-family: 'Poppins', sans-serif;
-}
-
-body {
   margin: 0;
   padding: 0;
-  height: 100vh;
+  box-sizing: border-box;
+  font-family: "Roboto", Arial, sans-serif;
 }
 
-.container {
-  max-width: 960px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+body,
+html {
+  min-height: 100%;
+  min-width: 100%;
+  background-image: linear-gradient(to top, #a5dd9b, #abe09e, #b1e2a0, #b7e4a3, #bde7a6, #c5e5a2, #cce39f, #d3e19c, #ddd994, #e5d18f, #ecc98d, #f2c18d);
+  color: white;
 }
