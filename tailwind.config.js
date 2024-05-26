@@ -18,6 +18,12 @@ module.exports = {
     },
     extend: {
       colors: {
+        'light-red': '#FF7D8B',
+        'light-brown': '#D7A151',
+        'dark-blue': '#3E6990',
+        'light-green': '#A5DD9B',
+        'light-yellow': '#F6F193',
+        'light-orange': '#FFD885',
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
@@ -57,6 +63,9 @@ module.exports = {
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
       },
+      fontFamily: {
+        sans: ['Roboto', 'sans-serif'],
+        serif: ['Merriweather', 'serif'],
       keyframes: {
         "accordion-down": {
           from: { height: "0" },
@@ -74,4 +83,5 @@ module.exports = {
     },
   },
   plugins: [require("tailwindcss-animate")],
+}
 }
