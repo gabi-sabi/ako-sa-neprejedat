@@ -40,19 +40,19 @@ const AvatarButton = () => {
 
 const headerItems = [
   {
-    href: "#",
+    href: "/prvapomoc",
     text: "Prvá pomoc",
   },
   {
-    href: "#",
+    href: "/skupina",
     text: "Podporná skupina",
   },
   {
-    href: "#",
+    href: "/konzultacia",
     text: "Konzultácia",
   },
   {
-    href: "#",
+    href: "/hry",
     text: "Hry",
   },
 ];
@@ -61,7 +61,7 @@ export const Header = () => {
   return (
     <nav className="bg-transparent text-white">
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-        <a href="#" className="text-2xl font-semibold whitespace-nowrap">
+        <a href="/" className="text-2xl font-semibold whitespace-nowrap">
           Ako sa neprejedať
         </a>
         <div className="items-center justify-between flex w-auto">

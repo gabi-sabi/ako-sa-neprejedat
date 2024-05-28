@@ -8,17 +8,3 @@
   --error: #FF7D8B;
 }
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: "Roboto", Arial, sans-serif;
-}
-
-body,
-html {
-  min-height: 100%;
-  min-width: 100%;
-  background-image: linear-gradient(to top, #a5dd9b, #abe09e, #b1e2a0, #b7e4a3, #bde7a6, #c5e5a2, #cce39f, #d3e19c, #ddd994, #e5d18f, #ecc98d, #f2c18d);
-  color: white;
-}
