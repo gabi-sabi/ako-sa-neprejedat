@@ -1,9 +1,10 @@
 import { X } from "lucide-react";
 import { Smile } from 'lucide-react';
 import { Button } from "@/components/ui/button";
-import React, { useState } from "react";
+import { useState } from "react";
+import PropTypes from "prop-types";
 
-export const Advice = ({ type, area }) => {
+export const Advice = ({ type, area, setResponseType }) => {
   const [isVisible, setIsVisible] = useState(true);
 
   return (
@@ -18,7 +19,10 @@ export const Advice = ({ type, area }) => {
                   variant="outline"
                   size="h-10 w-10"
                   className="flex"
-                  onClick={() => setIsVisible(!isVisible)}
+                  onClick={() => {
+                    setIsVisible(!isVisible)
+                    setResponseType(null)
+                  }}    
                 >
                   <X className="h-4 w-4" />
                 </Button>
@@ -56,10 +60,9 @@ export const Advice = ({ type, area }) => {
   );
 };
 
-/* 
-<ul>
-  {area.adviceEmot.map((step, index) => (
-    <li key={index}>{step}</li>
-  ))}
-</ul>
-  */
+Advice.propTypes = {
+  type: PropTypes.string.isRequired,
+  area: PropTypes.string.isRequired,
+  setResponseType: PropTypes.bool.isRequired,
+};
+
