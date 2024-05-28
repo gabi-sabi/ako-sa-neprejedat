@@ -1,4 +1,3 @@
-import React from "react";
 import { Advice } from "./Advice";
 import { useState } from "react";
 
