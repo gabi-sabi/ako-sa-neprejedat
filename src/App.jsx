@@ -1,9 +1,9 @@
 import React from "react";
 import { Header } from "./components/Header";
-import { Button } from "./components/ui/button";
 import { Footer } from "./components/Footer";
 import { PrvaPomoc} from "./components/PrvaPomoc"
 import "./App.css";
+import { ButtonBasic } from "./components/ButtonBasic";
 
 export const App = () => {
   return (
@@ -21,10 +21,10 @@ export const App = () => {
             </div>
             <div className="flex flex-col items-center justify-center gap-4">
               
-                <Button className="w-full">Prvá pomoc</Button>
-                <Button className="w-full">Podporná skupina</Button>
-                <Button className="w-full">Konzultácia</Button>
-                <Button className="w-full">Hry</Button>
+                <ButtonBasic color="light-red">Prvá pomoc</ButtonBasic>
+                <ButtonBasic color="light-brown">Podporná skupina</ButtonBasic>
+                <ButtonBasic color="dark-blue">Konzultácia</ButtonBasic>
+                <ButtonBasic color="light-yellow">Hry</ButtonBasic>
               
             </div>
           </div>

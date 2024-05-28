@@ -18,6 +18,10 @@ const buttonVariants = cva(
           "bg-secondary text-secondary-foreground hover:bg-secondary/80",
         ghost: "hover:bg-accent hover:text-accent-foreground",
         link: "text-primary underline-offset-4 hover:underline",
+        pomoc: "bg-light-red text-primary-foreground hover:bg-light-red/90",
+        skupina: "bg-light-brown text-primary-foreground hover:bg-light-brown/90",
+        konzultacia: "bg-dark-blue text-primary-foreground hover:bg-dark-blue/90",
+        hry: "bg-light-yellow text-primary-foreground hover:bg-light-yellow/90",
       },
       size: {
         default: "h-10 px-4 py-2",
