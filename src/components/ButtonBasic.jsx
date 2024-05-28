@@ -1,4 +1,4 @@
-import { Button } from "@/components/ui/button";
+import { Button } from "../components/ui/Button";
 
 export const ButtonBasic = ({ onClick, link, children, color, size }) => {
   return (
