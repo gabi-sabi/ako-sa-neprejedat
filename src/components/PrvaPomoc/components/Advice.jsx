@@ -1,6 +1,6 @@
 import { X } from "lucide-react";
 import { Smile } from 'lucide-react';
-import { Button } from "@/components/ui/button";
+import { Button } from "../../ui/Button";
 import { useState } from "react";
 import PropTypes from "prop-types";
 

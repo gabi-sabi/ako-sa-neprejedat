@@ -1,4 +1,5 @@
 import { Button } from "../components/ui/Button";
+import PropTypes from "prop-types";
 
 export const ButtonBasic = ({ onClick, link, children, color, size }) => {
   return (
@@ -13,4 +14,12 @@ export const ButtonBasic = ({ onClick, link, children, color, size }) => {
       </div>
     </Button>
   );
+};
+
+ButtonBasic.propTypes = {
+  onClick: PropTypes.bool.isRequired,
+  link: PropTypes.string.isRequired,
+  children: PropTypes.node.isRequired,
+  color: PropTypes.string.isRequired,
+  size: PropTypes.string.isRequired,
 };
