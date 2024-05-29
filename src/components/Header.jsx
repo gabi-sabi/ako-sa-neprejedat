@@ -68,8 +68,8 @@ export const Header = () => {
           <ul className="flex p-4 md:p-0 bg-transparent md:space-x-8">
             {headerItems.map((item, index) => (
               <HeaderItem 
-                key={index}
-                href={item.href}                
+              key={index}
+              href={item.href}                
               >
                 {item.text}
               </HeaderItem>
