@@ -1,5 +1,5 @@
 import { X } from "lucide-react";
-import { Smile } from 'lucide-react';
+import { Smile } from "lucide-react";
 import { Button } from "../../ui/Button";
 import { useState } from "react";
 import PropTypes from "prop-types";
@@ -39,7 +39,9 @@ export const Advice = ({ type, area, setResponseType }) => {
               </ul>
               <ul>
                 {area.adviceEmot.points.map((step, index) => (
-                  <li className="list-disc text-left" key={index}>{step}</li>
+                  <li className="list-disc text-left" key={index}>
+                    {step}
+                  </li>
                 ))}
               </ul>
               <div className="absolute top-2 right-2">
@@ -47,7 +49,10 @@ export const Advice = ({ type, area, setResponseType }) => {
                   variant="outline"
                   size="h-10 w-10"
                   className="flex"
-                  onClick={() => setIsVisible(!isVisible)}
+                  onClick={() => {
+                    setIsVisible(!isVisible)
+                    setResponseType(null)
+                  }}
                 >
                   <X className="h-4 w-4" />
                 </Button>

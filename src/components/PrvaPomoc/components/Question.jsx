@@ -30,7 +30,13 @@ export const Question = ({ area, onSelect }) => {
           </button>
         </div>
         <div className="flex w-full flex-row items-stretch">
-          {responseType && <Advice type={responseType} area={area} />}
+          {responseType && (
+            <Advice
+              type={responseType}
+              area={area}
+              setResponseType={setResponseType}
+            />
+          )}
         </div>
       </div>
     </div>
