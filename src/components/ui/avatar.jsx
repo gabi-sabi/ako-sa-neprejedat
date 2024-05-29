@@ -19,7 +19,7 @@ const Avatar = React.forwardRef(({ className, ...props }, ref) => (
 Avatar.displayName = AvatarPrimitive.Root.displayName;
 
 Avatar.propTypes = {
-  className: PropTypes.string.isRequired,
+  className: PropTypes.string,
 };
 
 const AvatarImage = React.forwardRef(({ className, ...props }, ref) => (
@@ -32,7 +32,7 @@ const AvatarImage = React.forwardRef(({ className, ...props }, ref) => (
 AvatarImage.displayName = AvatarPrimitive.Image.displayName;
 
 AvatarImage.propTypes = {
-  className: PropTypes.string.isRequired,
+  className: PropTypes.string,
 };
 
 const AvatarFallback = React.forwardRef(({ className, ...props }, ref) => (
@@ -48,7 +48,7 @@ const AvatarFallback = React.forwardRef(({ className, ...props }, ref) => (
 AvatarFallback.displayName = AvatarPrimitive.Fallback.displayName;
 
 AvatarFallback.propTypes = {
-  className: PropTypes.string.isRequired,
+  className: PropTypes.string,
 };
 
 export { Avatar, AvatarImage, AvatarFallback };

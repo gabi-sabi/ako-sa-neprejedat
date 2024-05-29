@@ -57,5 +57,5 @@ Button.propTypes = {
   className: PropTypes.string.isRequired,
   variant: PropTypes.string.isRequired,
   size: PropTypes.string.isRequired,
-  asChild: PropTypes.any.isRequired,
+  asChild: PropTypes.any,
 };

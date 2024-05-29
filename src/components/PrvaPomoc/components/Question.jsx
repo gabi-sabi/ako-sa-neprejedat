@@ -44,6 +44,6 @@ export const Question = ({ area, onSelect }) => {
 };
 
 Question.propTypes = {
-  area: PropTypes.string.isRequired,
-  onSelect: PropTypes.bool.isRequired,
+  area: PropTypes.object.isRequired,
+  onSelect: PropTypes.any.isRequired,
 };
