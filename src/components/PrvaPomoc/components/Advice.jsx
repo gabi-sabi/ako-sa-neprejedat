@@ -20,21 +20,24 @@ export const Advice = ({ type, area, setResponseType }) => {
                   size="h-10 w-10"
                   className="flex"
                   onClick={() => {
-                    setIsVisible(!isVisible)
-                    setResponseType(null)
-                  }}    
+                    setIsVisible(!isVisible);
+                    setResponseType(null);
+                  }}
                 >
                   <X className="h-4 w-4" />
                 </Button>
               </div>
-              <div className="py-5"><Smile color="#A5DD9B" className="w-10 h-10"/></div>
+              <div className="py-5">
+                <Smile color="#A5DD9B" className="w-10 h-10" />
+              </div>
             </button>
-            
           ) : (
             <button className="cursor-pointer relative flex w-full flex-col justify-center items-center bg-white my-5 rounded-xl px-10 py-5">
               <ul>
                 {area.adviceEmot.title.map((step, index) => (
-                  <li className="text-left" key={index}>{step}</li>
+                  <li className="text-left" key={index}>
+                    {step}
+                  </li>
                 ))}
               </ul>
               <ul>
@@ -50,8 +53,8 @@ export const Advice = ({ type, area, setResponseType }) => {
                   size="h-10 w-10"
                   className="flex"
                   onClick={() => {
-                    setIsVisible(!isVisible)
-                    setResponseType(null)
+                    setIsVisible(!isVisible);
+                    setResponseType(null);
                   }}
                 >
                   <X className="h-4 w-4" />
@@ -70,4 +73,3 @@ Advice.propTypes = {
   area: PropTypes.string.isRequired,
   setResponseType: PropTypes.bool.isRequired,
 };
-

@@ -1,7 +1,6 @@
-import React from "react";
 import { QuestionList } from "./components/QuestionList";
-import { Header } from "../Header"
-import { Footer } from "../Footer"
+import { Header } from "../Header";
+import { Footer } from "../Footer";
 
 export const PrvaPomoc = () => {
   return (

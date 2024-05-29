@@ -12,7 +12,7 @@ const HeaderItem = ({ href, children }) => {
       </a>
     </li>
   );
-}
+};
 
 HeaderItem.propTypes = {
   href: PropTypes.string.isRequired,
@@ -36,7 +36,7 @@ const AvatarButton = () => {
       </Avatar>
     </button>
   );
-}
+};
 
 const headerItems = [
   {
@@ -67,10 +67,7 @@ export const Header = () => {
         <div className="items-center justify-between flex w-auto">
           <ul className="flex p-4 md:p-0 bg-transparent md:space-x-8">
             {headerItems.map((item, index) => (
-              <HeaderItem 
-              key={index}
-              href={item.href}                
-              >
+              <HeaderItem key={index} href={item.href}>
                 {item.text}
               </HeaderItem>
             ))}

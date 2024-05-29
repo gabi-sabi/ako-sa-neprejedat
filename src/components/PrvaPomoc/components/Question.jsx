@@ -14,7 +14,7 @@ export const Question = ({ area, onSelect }) => {
         <div className="grid grid-cols-2 justify-items-stretch align-items-stretch text-xl gap-5">
           <button
             className={`cursor-pointer flex flex-1 flex-row justify-center items-center rounded-xl w-full h-full p-4 ${
-              responseType==="respFyzio" ? "bg-light-green" : "bg-white"
+              responseType === "respFyzio" ? "bg-light-green" : "bg-white"
             }`}
             onClick={() => setResponseType("respFyzio")}
           >
@@ -22,7 +22,7 @@ export const Question = ({ area, onSelect }) => {
           </button>
           <button
             className={`cursor-pointer flex flex-1 flex-row justify-center items-center rounded-xl w-full h-full p-4 ${
-              responseType==="respEmot" ? "bg-light-red" : "bg-white"
+              responseType === "respEmot" ? "bg-light-red" : "bg-white"
             }`}
             onClick={() => setResponseType("respEmot")}
           >
@@ -47,4 +47,3 @@ Question.propTypes = {
   area: PropTypes.string.isRequired,
   onSelect: PropTypes.bool.isRequired,
 };
-

@@ -1,7 +1,5 @@
-import React from "react";
 import { Header } from "../Header";
 import { Footer } from "../Footer";
-
 
 export const Konzultacia = () => {
   return (
@@ -14,5 +12,5 @@ export const Konzultacia = () => {
         <Footer />
       </div>
     </>
-  )
-}
+  );
+};
