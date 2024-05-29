@@ -1,12 +1,10 @@
-import React from "react";
-import { Routes, Route } from "react-router-dom"
-import { HomePage} from "./HomePage"
-import { PrvaPomoc} from "./components/PrvaPomoc"
+import { Routes, Route } from "react-router-dom";
+import { HomePage } from "./HomePage";
+import { PrvaPomoc } from "./components/PrvaPomoc";
 import { Skupina } from "./components/Skupina";
 import { Konzultacia } from "./components/Konzultacia";
-import { Hry } from "./components/Hry"
+import { Hry } from "./components/Hry";
 import "./App.css";
-
 
 export const App = () => {
   return (
