@@ -25,7 +25,7 @@ const adviceEmotList = (
          {step}
             </li>
     ))}
-  </ul>,
+  </ul>
 );
 
 const adviceEmotComb = (
@@ -50,6 +50,9 @@ const ButtonClose = ({ onClick }) => {
     </Button>
   );
 };
+ButtonClose.propTypes = {
+  onClick: PropTypes.func,
+};
 
 const AdviceCard = ({ text, children, list }) => {
   return (
@@ -61,6 +64,13 @@ const AdviceCard = ({ text, children, list }) => {
       <div className="relative grid grid-cols-1 gap-6">{children}</div>
     </div>
   );
+};
+
+AdviceCard.propTypes = {
+  text: PropTypes.string,
+  list: PropTypes.string,
+  children: PropTypes.any,
+  handleClick: PropTypes.func,
 };
 
 export const Advice = ({ type, area, setResponseType, question }) => {
@@ -84,52 +94,26 @@ export const Advice = ({ type, area, setResponseType, question }) => {
                </>
              }
            </AdviceCard>
-         ) : 
-           question === "Kedy ste naposledy jedli?" ? (
-             <AdviceCard
-               text={adviceEmotComb}
-               list={adviceEmotList}>
-                 {
-                 <ButtonClose onClick={handleClick} /> 
-             }
-               </AdviceCard> ) : (
-               <AdviceCard
-               text={adviceEmot}
-               list={adviceEmotList}>
-                 {
-                 <ButtonClose onClick={handleClick} /> 
-             }
-               </AdviceCard>
-           )
-         };
-       );
-      };
-    </div>  
-  ); 
+         ) : (
+          <AdviceCard
+            text={question === "Kedy ste naposledy jedli?" ? adviceEmotComb : adviceEmot}
+            list={adviceEmotList}
+          >
+             <ButtonClose onClick={handleClick} /> 
+           </AdviceCard>
+          )
+        };
+      );
+    </div>
+  )
 };
-  
-            
-            
-
-            
-              
-          
-      
-
 
 Advice.propTypes = {
-  type: PropTypes.string.isRequired,
-  area: PropTypes.string.isRequired,
-  setResponseType: PropTypes.bool.isRequired,
+  type: PropTypes.string,
+  area: PropTypes.string,
+  setResponseType: PropTypes.bool,
 };
 
-ButtonClose.propTypes = {
-  onClick: PropTypes.func,
-};
 
-AdviceCard.propTypes = {
-  text: PropTypes.string,
-  list: PropTypes.string,
-  children: PropTypes.any,
-  handleClick: PropTypes.func,
-};
+
+
