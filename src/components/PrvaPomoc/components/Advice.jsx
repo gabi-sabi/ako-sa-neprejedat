@@ -3,41 +3,56 @@ import { Button } from "../../ui/Button";
 import { useState } from "react";
 import PropTypes from "prop-types";
 
-const adviceFyzio = (
-  <p>
-    Super, Váš hlad je
-    <span className="text-light-green font-bold">fyziologický</span>, najedzte
-    sa.
-  </p>
-);
+const AdviceFyzio = () => {
+  return (
+    <p>
+      <span>Super, Váš hlad je </span>
+      <span className="text-light-green font-bold">fyziologický</span>
+      <span>, najedzte sa.</span>
+    </p>
+  );
+};
 
-const adviceEmot = (
-  <p>
-    Váš hlad je <span className="text-light-red font-bold">emočný</span>,
-    skúste:
-  </p>
-);
+const AdviceEmot = () => {
+  return (
+    <p>
+      <span>Váš hlad je </span>
+      <span className="text-light-red font-bold">emočný</span>
+      <span>, skúste:</span>
+    </p>
+  );
+};
 
-const adviceEmotList = (
-  <ul>
-    {area.adviceEmot.points.map((step, index) => (
-       <li className="list-disc text-left" key={index}>
-         {step}
-            </li>
-    ))}
-  </ul>
-);
+const AdviceEmotList = ({ area }) => {
+  return (
+    <ul>
+      {area.adviceEmot.points.map((step, index) => (
+        <li className="list-disc text-left" key={index}>
+          {step}
+        </li>
+      ))}
+    </ul>
+  );
+};
 
-const adviceEmotComb = (
-  <div>
-  <p>
-    Ak ste pred hodinou jedli niečo malé, teraz je čas na kvalitné hlavné jedlo (250/300g).</p>
-	<p>Ak ste pred hodinou obedovali alebo večerali, tento Váš hlad je
- <span className="text-light-red font-bold">emočný</span>,
-    skúste:
-  </p>
-  </div>
-);
+AdviceEmotList.propTypes = {
+  area: PropTypes.any,
+};
+
+const AdviceEmotComb = () => {
+  return (
+    <div>
+      <p>
+        Ak ste pred hodinou jedli niečo malé, teraz je čas na kvalitné hlavné
+        jedlo (250/300g).
+      </p>
+      <p>
+        Ak ste pred hodinou obedovali alebo večerali, tento Váš hlad je
+        <span className="text-light-red font-bold">emočný</span>, skúste:
+      </p>
+    </div>
+  );
+};
 
 const ButtonClose = ({ onClick }) => {
   return (
@@ -54,12 +69,14 @@ ButtonClose.propTypes = {
   onClick: PropTypes.func,
 };
 
-const AdviceCard = ({ text, children, list }) => {
+const AdviceCard = ({ AdviceText, children, AdviceList, area }) => {
   return (
     <div className="cursor-pointer relative flex w-full flex-col justify-center items-center bg-white my-5 rounded-xl p-5">
       <div className="p-4">
-        <div className="text-left font-bold">{text}</div>
-        {list}
+        <div className="text-left font-bold">
+          <AdviceText />
+        </div>
+        {AdviceList && area && <AdviceList area={area} />}
       </div>
       <div className="relative grid grid-cols-1 gap-6">{children}</div>
     </div>
@@ -67,10 +84,10 @@ const AdviceCard = ({ text, children, list }) => {
 };
 
 AdviceCard.propTypes = {
-  text: PropTypes.string,
-  list: PropTypes.string,
+  AdviceText: PropTypes.node.isRequired,
+  AdviceList: PropTypes.node,
   children: PropTypes.any,
-  handleClick: PropTypes.func,
+  area: PropTypes.any,
 };
 
 export const Advice = ({ type, area, setResponseType, question }) => {
@@ -81,39 +98,35 @@ export const Advice = ({ type, area, setResponseType, question }) => {
     setResponseType(null);
   };
 
+  if (!isVisible) return null;
+
   return (
-  <div className="flex w-full flex-row items-stretch">
-      {isVisible && (
-         <div className="flex w-full flex-row items-stretch">
-         {type === "respFyzio" ? (
-           <AdviceCard text={adviceFyzio}>
-             {
-               <>
-                 <Smile color="#A5DD9B" className="w-10 h-10" />
-                 <ButtonClose onClick={handleClick} />
-               </>
-             }
-           </AdviceCard>
-         ) : (
-          <AdviceCard
-            text={question === "Kedy ste naposledy jedli?" ? adviceEmotComb : adviceEmot}
-            list={adviceEmotList}
-          >
-             <ButtonClose onClick={handleClick} /> 
-           </AdviceCard>
-          )
-        };
-      );
+    <div className="flex w-full flex-row items-stretch">
+      {type === "respFyzio" ? (
+        <AdviceCard AdviceText={AdviceFyzio}>
+          <Smile color="#A5DD9B" className="w-10 h-10" />
+          <ButtonClose onClick={handleClick} />
+        </AdviceCard>
+      ) : (
+        <AdviceCard
+          AdviceText={
+            question === "Kedy ste naposledy jedli?"
+              ? AdviceEmotComb
+              : AdviceEmot
+          }
+          AdviceList={AdviceEmotList}
+          area={area}
+        >
+          <ButtonClose onClick={handleClick} />
+        </AdviceCard>
+      )}
     </div>
-  )
+  );
 };
 
 Advice.propTypes = {
   type: PropTypes.string,
-  area: PropTypes.string,
-  setResponseType: PropTypes.bool,
+  area: PropTypes.object,
+  setResponseType: PropTypes.func,
+  question: PropTypes.string,
 };
-
-
-
-
