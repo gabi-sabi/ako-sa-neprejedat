@@ -9,14 +9,13 @@ import "./App.css";
 export const App = () => {
   return (
     <>
-       <Routes>
-        <Route path="/" element={ <HomePage/> } />
-        <Route path="/prvapomoc" element={ <PrvaPomoc/> } />
-        <Route path="/skupina" element={ <Skupina/> } />
-        <Route path="/konzultacia" element={ <Konzultacia/> } />
-        <Route path="/hry" element={ <Hry/> } />
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/prvapomoc" element={<PrvaPomoc />} />
+        <Route path="/skupina" element={<Skupina />} />
+        <Route path="/konzultacia" element={<Konzultacia />} />
+        <Route path="/hry" element={<Hry />} />
       </Routes>
     </>
   );
 };
-
