@@ -1,4 +1,3 @@
-import React from "react";
 import { Link } from "react-router-dom";
 import { Header } from "./components/Header";
 import { Footer } from "./components/Footer";
@@ -21,19 +20,22 @@ export const HomePage = () => {
             </div>
             <div className=" w-1/2 grid grid-cols-1  justify-items-center">
               <div className="w-1/2 grid gap-4">
-              <Link to="/prvapomoc">
-                <ButtonBasic size="lg" color="light-red"
-                >Prvá pomoc</ButtonBasic>
-              </Link>
-              <Link to="/skupina">
-                <ButtonBasic color="light-brown">Podporná skupina</ButtonBasic>
-              </Link>
-              <Link to="/konzultacia">
-                <ButtonBasic color="dark-blue">Konzultácia</ButtonBasic>
-              </Link>
-              <Link to="/hry">
-                <ButtonBasic color="light-yellow">Hry</ButtonBasic>
-              </Link>
+                <Link to="/prvapomoc">
+                  <ButtonBasic size="lg" color="light-red">
+                    Prvá pomoc
+                  </ButtonBasic>
+                </Link>
+                <Link to="/skupina">
+                  <ButtonBasic color="light-brown">
+                    Podporná skupina
+                  </ButtonBasic>
+                </Link>
+                <Link to="/konzultacia">
+                  <ButtonBasic color="dark-blue">Konzultácia</ButtonBasic>
+                </Link>
+                <Link to="/hry">
+                  <ButtonBasic color="light-yellow">Hry</ButtonBasic>
+                </Link>
               </div>
             </div>
           </div>

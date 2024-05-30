@@ -1,7 +1,7 @@
 import { Button } from "../components/ui/Button";
 import PropTypes from "prop-types";
 
-export const ButtonBasic = ({ onClick, link, children, color, size }) => {
+export const ButtonBasic = ({ onClick, link, color, size, children }) => {
   return (
     <Button
       onClick={onClick}
@@ -17,7 +17,7 @@ export const ButtonBasic = ({ onClick, link, children, color, size }) => {
 ButtonBasic.propTypes = {
   onClick: PropTypes.bool,
   link: PropTypes.string,
-  children: PropTypes.node,
   color: PropTypes.string,
   size: PropTypes.string,
+  children: PropTypes.any,
 };

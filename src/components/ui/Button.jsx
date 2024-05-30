@@ -40,14 +40,13 @@ export const buttonVariants = cva(
 );
 
 export const Button = React.forwardRef(
-  ({ className, variant, size, children, asChild = false, ...props }, ref) => {
+  ({ className, variant, size, asChild = false, ...props }, ref) => {
     const Comp = asChild ? Slot : "button";
     return (
       <Comp
         className={cn(buttonVariants({ variant, size, className }))}
         ref={ref}
         {...props}
-        {...children}
       />
     );
   },
@@ -55,9 +54,8 @@ export const Button = React.forwardRef(
 Button.displayName = "Button";
 
 Button.propTypes = {
-  className: PropTypes.string.isRequired,
-  variant: PropTypes.string.isRequired,
-  size: PropTypes.string.isRequired,
+  className: PropTypes.string,
+  variant: PropTypes.string,
+  size: PropTypes.string,
   asChild: PropTypes.any,
-  children: PropTypes.any,
 };
