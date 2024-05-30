@@ -12,7 +12,7 @@ const HeaderItem = ({ href, children }) => {
       </a>
     </li>
   );
-}
+};
 
 HeaderItem.propTypes = {
   href: PropTypes.string.isRequired,
@@ -36,23 +36,23 @@ const AvatarButton = () => {
       </Avatar>
     </button>
   );
-}
+};
 
 const headerItems = [
   {
-    href: "#",
+    href: "/prvapomoc",
     text: "Prvá pomoc",
   },
   {
-    href: "#",
+    href: "/skupina",
     text: "Podporná skupina",
   },
   {
-    href: "#",
+    href: "/konzultacia",
     text: "Konzultácia",
   },
   {
-    href: "#",
+    href: "/hry",
     text: "Hry",
   },
 ];
@@ -61,16 +61,13 @@ export const Header = () => {
   return (
     <nav className="bg-transparent text-white">
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-        <a href="#" className="text-2xl font-semibold whitespace-nowrap">
+        <a href="/" className="text-2xl font-semibold whitespace-nowrap">
           Ako sa neprejedať
         </a>
         <div className="items-center justify-between flex w-auto">
           <ul className="flex p-4 md:p-0 bg-transparent md:space-x-8">
             {headerItems.map((item, index) => (
-              <HeaderItem 
-              key={index}
-              href={item.href}                
-              >
+              <HeaderItem key={index} href={item.href}>
                 {item.text}
               </HeaderItem>
             ))}
