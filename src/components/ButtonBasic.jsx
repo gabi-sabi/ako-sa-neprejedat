@@ -15,9 +15,9 @@ export const ButtonBasic = ({ onClick, link, children, color, size }) => {
 };
 
 ButtonBasic.propTypes = {
-  onClick: PropTypes.bool.isRequired,
-  link: PropTypes.string.isRequired,
-  children: PropTypes.node.isRequired,
-  color: PropTypes.string.isRequired,
-  size: PropTypes.string.isRequired,
+  onClick: PropTypes.bool,
+  link: PropTypes.string,
+  children: PropTypes.node,
+  color: PropTypes.string,
+  size: PropTypes.string,
 };
