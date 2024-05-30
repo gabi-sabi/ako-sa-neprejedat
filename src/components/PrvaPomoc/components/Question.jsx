@@ -35,6 +35,7 @@ export const Question = ({ area, onSelect }) => {
               type={responseType}
               area={area}
               setResponseType={setResponseType}
+              question={area.question}
             />
           )}
         </div>
