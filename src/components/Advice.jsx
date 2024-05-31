@@ -1,5 +1,5 @@
 import { Smile } from "lucide-react";
-import { Button } from "../../../components/ui/Button";
+import { Button } from "./ui/Button";
 import { useState } from "react";
 import PropTypes from "prop-types";
 

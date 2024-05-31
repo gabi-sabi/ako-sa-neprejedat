@@ -1,4 +1,4 @@
-import { QuestionList } from "./components/QuestionList";
+import { QuestionList } from "../../components/QuestionList";
 
 export const PrvaPomocPage = () => {
   return (
