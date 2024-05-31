@@ -4,10 +4,8 @@ import pluginReactConfig from "eslint-plugin-react/configs/recommended.js";
 import { fixupConfigRules } from "@eslint/compat";
 import eslintConfigPrettier from "eslint-config-prettier";
 
-
-
 export default [
-  {languageOptions: { globals: globals.browser }},
+  { languageOptions: { globals: globals.browser } },
   pluginJs.configs.recommended,
   ...fixupConfigRules(pluginReactConfig),
   eslintConfigPrettier,

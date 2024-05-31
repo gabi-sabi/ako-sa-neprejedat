@@ -1,15 +1,20 @@
 import { Smile } from "lucide-react";
-import { Button } from "../../ui/Button";
+import { Button } from "../../../components/ui/Button";
 import { useState } from "react";
 import PropTypes from "prop-types";
 
 const AdviceFyzio = () => {
   return (
-    <p>
-      <span>Super, Váš hlad je </span>
-      <span className="text-light-green font-bold">fyziologický</span>
-      <span>, najedzte sa.</span>
-    </p>
+    <div className="flex flex-col gap-10">
+      <p>
+        <span>Super, Váš hlad je </span>
+        <span className="text-light-green font-bold">fyziologický</span>
+        <span>, najedzte sa.</span>
+      </p>
+      <div className="flex flex-row justify-center">
+        <Smile color="#A5DD9B" className="w-10 h-10" />
+      </div>
+    </div>
   );
 };
 
@@ -47,8 +52,11 @@ const AdviceEmotComb = () => {
         jedlo (250/300g).
       </p>
       <p>
-        Ak ste pred hodinou obedovali alebo večerali, tento Váš hlad je
-        <span className="text-light-red font-bold">emočný</span>, skúste:
+        <span>
+          Ak ste pred hodinou obedovali alebo večerali, tento Váš hlad je{" "}
+        </span>
+        <span className="text-light-red font-bold">emočný</span>
+        <span>, skúste:</span>
       </p>
     </div>
   );
@@ -71,14 +79,14 @@ ButtonClose.propTypes = {
 
 const AdviceCard = ({ AdviceText, children, AdviceList, area }) => {
   return (
-    <div className="cursor-pointer relative flex w-full flex-col justify-center items-center bg-white my-5 rounded-xl p-5">
-      <div className="p-4">
+    <div className="cursor-pointer relative flex w-full flex-row justify-center items-center bg-white my-5 rounded-xl p-5">
+      <div className="absolute right-2 top-2">{children}</div>
+      <div className="p-5">
         <div className="text-left font-bold">
           <AdviceText />
         </div>
         {AdviceList && area && <AdviceList area={area} />}
       </div>
-      <div className="relative grid grid-cols-1 gap-6">{children}</div>
     </div>
   );
 };
@@ -104,7 +112,6 @@ export const Advice = ({ type, area, setResponseType, question }) => {
     <div className="flex w-full flex-row items-stretch">
       {type === "respFyzio" ? (
         <AdviceCard AdviceText={AdviceFyzio}>
-          <Smile color="#A5DD9B" className="w-10 h-10" />
           <ButtonClose onClick={handleClick} />
         </AdviceCard>
       ) : (
