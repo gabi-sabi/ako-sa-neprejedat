@@ -1,13 +1,14 @@
 import { Button } from "../components/ui/Button";
+import PropTypes from "prop-types";
 
-export const FormAbout = () => {
+export const FormAbout = ({ photo }) => {
   return (
     <div className="flex flex-col items-center justify-between flex-1">
       <div className="flex-1 flex flex-col justify-center">
         <img
-          src="#"
-          width={400}
-          height={500}
+          src={photo}
+          width={300}
+          height={400}
           alt="ProfilePicture"
           className="w-full h-auto rounded-lg object-cover"
         />
@@ -17,4 +18,8 @@ export const FormAbout = () => {
       </div>
     </div>
   );
+};
+
+FormAbout.propTypes = {
+  photo: PropTypes.string,
 };
