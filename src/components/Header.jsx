@@ -1,5 +1,4 @@
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { UserRound } from "lucide-react";
 import PropTypes from "prop-types";
 
 const HeaderItem = ({ href, children }) => {
