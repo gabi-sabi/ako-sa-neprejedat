@@ -1,4 +1,4 @@
-import { data } from "../data";
+import { data } from "../assets/data";
 import { useState } from "react";
 import { Question } from "./Question";
 

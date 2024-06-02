@@ -1,4 +1,5 @@
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { UserRound } from "lucide-react";
 import PropTypes from "prop-types";
 
 const HeaderItem = ({ href, children }) => {
@@ -31,7 +32,7 @@ const AvatarButton = () => {
     >
       <span className="sr-only">Open user menu</span>
       <Avatar>
-        <AvatarImage src="https://github.com/shadcn.png" />
+        <AvatarImage />
         <AvatarFallback>CN</AvatarFallback>
       </Avatar>
     </button>
@@ -50,6 +51,10 @@ const headerItems = [
   {
     href: "/konzultacia",
     text: "Konzultácia",
+  },
+  {
+    href: "/o-nas",
+    text: "O nás",
   },
   {
     href: "/hry",
