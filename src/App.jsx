@@ -7,21 +7,25 @@ import { ONasPage } from "./pages/ONas";
 import { HryPage } from "./pages/Hry";
 import { Header } from "../src/components/Header";
 import { Footer } from "../src/components/Footer";
+import { Toaster } from "react-hot-toast";
 import "./App.css";
 
 export const App = () => {
   return (
-    <div className="grid grid-rows-[auto_1fr_auto] min-h-screen">
-      <Header />
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/prvapomoc" element={<PrvaPomocPage />} />
-        <Route path="/skupina" element={<SkupinaPage />} />
-        <Route path="/konzultacia" element={<KonzultaciaPage />} />
-        <Route path="/o-nas" element={<ONasPage />} />
-        <Route path="/hry" element={<HryPage />} />
-      </Routes>
-      <Footer />
-    </div>
+    <>
+      <Toaster />
+      <div className="grid grid-rows-[auto_1fr_auto] min-h-screen">
+        <Header />
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/prvapomoc" element={<PrvaPomocPage />} />
+          <Route path="/skupina" element={<SkupinaPage />} />
+          <Route path="/konzultacia" element={<KonzultaciaPage />} />
+          <Route path="/o-nas" element={<ONasPage />} />
+          <Route path="/hry" element={<HryPage />} />
+        </Routes>
+        <Footer />
+      </div>
+    </>
   );
 };
