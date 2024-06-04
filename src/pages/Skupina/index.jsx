@@ -1,4 +1,4 @@
-import profilemockup2 from "../../assets/profilemockup2.jpg";
+import skupina_main from "../../assets/skupina_main.jpg";
 import { SelectTimeSlot } from "@/components/SelectTimeSlot";
 import { Button } from "../../components/ui/Button";
 import { Label } from "../../components/ui/label";
@@ -9,7 +9,7 @@ export const SkupinaPage = () => {
     <div className="flex flex-row gap-8 py-20 px-60 items-center justify-center">
       <div className="flex w-1/2 items-stretch justify-center">
         <img
-          src={profilemockup2}
+          src={skupina_main}
           alt="ProfilePicture"
           className="h-full rounded-lg object-fit"
         />

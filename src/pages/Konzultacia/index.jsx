@@ -1,11 +1,11 @@
-import profilemockup from "../../assets/profilemockup.jpg";
+import konz_main from "../../assets/konz_main.jpg";
 
 export const KonzultaciaPage = () => {
   return (
     <div className="flex flex-row gap-8 py-20 px-60 items-center justify-center">
       <div className="flex w-1/2 items-stretch justify-center">
         <img
-          src={profilemockup}
+          src={konz_main}
           alt="ProfilePicture"
           className="h-full rounded-lg object-fit"
         />
