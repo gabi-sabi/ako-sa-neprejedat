@@ -1,16 +1,16 @@
-import profilemockup from "../../assets/profilemockup.jpg";
+import konz_main from "../../assets/konz_main.jpg";
 
 export const KonzultaciaPage = () => {
   return (
-    <div className="grid grid-cols-2 gap-8 py-20 px-60 items-center justify-center">
-      <div className="grid items-stretch justify-center">
+    <div className="flex flex-row gap-8 py-20 px-60 items-center justify-center">
+      <div className="flex w-1/2 items-stretch justify-center">
         <img
-          src={profilemockup}
+          src={konz_main}
           alt="ProfilePicture"
-          className="h-96 rounded-lg object-cover"
+          className="h-full rounded-lg object-fit"
         />
       </div>
-      <div className="gap-6">
+      <div className="flex flex-col w-1/2">
         <h1 className="text-bold text-4xl">Objednajte sa na konzultáciu</h1>
         <br />
         <div className="text-justify text-lg">
