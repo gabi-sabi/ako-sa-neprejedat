@@ -3,7 +3,7 @@ import { ButtonBasic } from "./components/ButtonBasic";
 
 export const HomePage = () => {
   return (
-    <div className="flex flex-col h-screen">
+    <div className="flex flex-col">
       <main className="flex flex-1 flex-col items-center justify-center font-sans h-auto">
         <div className="flex flex-row items-center justify-center gap-4">
           <div className=" w-1/2 flex flex-col items-center gap-20">
