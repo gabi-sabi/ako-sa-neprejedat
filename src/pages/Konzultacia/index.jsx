@@ -1,4 +1,5 @@
 import konz_main from "../../assets/konz_main.jpg";
+import { DialogBank } from "../../components/DialogBank";
 
 export const KonzultaciaPage = () => {
   return (
@@ -25,8 +26,15 @@ export const KonzultaciaPage = () => {
             Po predchádzajúcej dohode sa vieme stretnúť osobne v mojej
             kancelárii v Košiciach. Stretnutie trvá 50 minút, odchádzate z neho
             s odpoveďami na všetky svoje otázky. Honorár vo výške 40€ môžete
-            poukázať vopred na účet alebo zaplatiť po ukončení stretnutia v
-            hotovosti.
+            poukázať vopred na{" "}
+            <DialogBank
+              accountName="Profi Food"
+              iban="SK8102000000002989436154"
+              bankCode="0200"
+              bankInfo="SUBA (Všeobecná úverová banka, Moldavská 32, 040 01 Košice)"
+              swift="SUBASKBX"
+            />{" "}
+            alebo zaplatiť po ukončení stretnutia v hotovosti.
           </p>
           <br />
           <p>

@@ -1,27 +1,12 @@
-import { useState } from "react";
 import { toast } from "react-hot-toast";
 import skupina_main from "../../assets/skupina_main.jpg";
 import { SelectTimeSlot } from "@/components/SelectTimeSlot";
 import { Button } from "../../components/ui/Button";
 import { Label } from "../../components/ui/label";
 import { Input } from "../../components/ui/input";
-import {
-  Dialog,
-  DialogTrigger,
-  DialogContent,
-  DialogHeader,
-  DialogTitle,
-  DialogDescription,
-  DialogFooter,
-} from "../../components/ui/dialog";
+import { DialogBank } from "../../components/DialogBank";
 
 export const SkupinaPage = () => {
-  const [isOpen, setIsOpen] = useState(false);
-
-  const handleCloseDialog = () => {
-    setIsOpen(false);
-  };
-
   const notify = () =>
     toast.success(
       <p className="text-center text-2xl">
@@ -64,65 +49,14 @@ export const SkupinaPage = () => {
             <br />
             <p>
               Každé stretnutie je viazané úhradou poplatku 10€ na{" "}
-              <Dialog open={isOpen} onOpenChange={setIsOpen}>
-                <DialogTrigger asChild>
-                  <span className="text-dark-blue transition duration-150 ease-in-out hover:text-dark-blue-600 focus:text-darkblue-600 cursor-pointer font-bold underline underline-offset-2">
-                    účet
-                  </span>
-                </DialogTrigger>
-                <DialogContent className="sm:max-w-[425px]">
-                  <DialogHeader>
-                    <DialogTitle>Bankové spojenie</DialogTitle>
-                    <DialogDescription>
-                      <div className="grid w-full grid-cols-2">
-                        <div>
-                          <span>Názov účtu:</span>
-                        </div>
-                        <div>
-                          <span>Profi Food</span>
-                        </div>
-                        <div>
-                          <span>IBAN:</span>
-                        </div>
-                        <div>
-                          <span>SK8102000000002989436154</span>
-                        </div>
-                        <div>
-                          <span>Kód banky:</span>
-                        </div>
-                        <div>
-                          <span>0200</span>
-                        </div>
-                        <div>
-                          <span>Označenie banky:</span>
-                        </div>
-                        <div>
-                          <span>
-                            SUBA (Všeobecná úverová banka, Moldavská 32, 040 01
-                            Košice)
-                          </span>
-                        </div>
-                        <div>
-                          <span>SWIFT kód:</span>
-                        </div>
-                        <div>
-                          <span>SUBASKBX</span>
-                        </div>
-                        <br />
-                      </div>
-                      <p>
-                        Pri platbe uveďte, prosím, do správy pre prijímateľa
-                        meno a priezvisko klienta.
-                      </p>
-                    </DialogDescription>
-                  </DialogHeader>
-                  <DialogFooter>
-                    <Button type="button" onClick={handleCloseDialog}>
-                      Zavrieť
-                    </Button>
-                  </DialogFooter>
-                </DialogContent>
-              </Dialog>
+              <DialogBank
+                accountName="Gabriela Sabolová"
+                iban="SK7583605207004208607176"
+                bankCode="8360"
+                bankInfo="BREXSA (mBank S.A. Pribinova 10
+                  811 09 Bratislava)"
+                swift="BREXSKBX"
+              />
               . Link k pripojeniu posielam na e-mail vždy bezprostredne po
               obdržaní platby. Teším sa na vás.
             </p>
