@@ -12,7 +12,9 @@ export const KonzultaciaPage = () => {
         />
       </div>
       <div className="flex flex-col w-full md:w-1/2">
-        <h1 className="text-bold text-4xl">Objednajte sa na konzultáciu</h1>
+        <h1 className="text-bold text-4xl text-center">
+          Objednajte sa na konzultáciu
+        </h1>
         <br />
         <div className="text-justify text-lg">
           <p>

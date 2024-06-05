@@ -57,7 +57,7 @@ export const SkupinaPage = () => {
         />
       </div>
       <div className="flex flex-col w-full md:w-1/2">
-        <h1 className="text-bold text-4xl">Podporná skupina</h1>
+        <h1 className="text-bold text-4xl text-center">Podporná skupina</h1>
         <br />
         <div className="grid gap-4">
           <div className="text-justify text-lg">
