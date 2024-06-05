@@ -9,9 +9,9 @@ export const Question = ({ area, onSelect }) => {
       className="h-full flex-col justify-center items-center gap-10"
       onClick={() => onSelect(area.id)}
     >
-      <h2 className="font-bold text-2xl m-5">{area.question}</h2>
+      <h2 className="font-bold text-xl m-5 md:text-2xl">{area.question}</h2>
       <div className="flex flex-1 flex-col justify-center items-stretch">
-        <div className="grid grid-cols-2 justify-items-stretch align-items-stretch text-xl gap-5">
+        <div className="grid grid-cols-2 justify-items-stretch align-items-stretch text-base gap-5 md:text-xl">
           <button
             className={`cursor-pointer flex flex-1 flex-row justify-center items-center rounded-xl w-full h-full p-4 ${
               responseType === "respFyzio" ? "bg-light-green" : "bg-white"
