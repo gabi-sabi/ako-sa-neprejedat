@@ -1,5 +1,5 @@
-import { Button } from "../components/ui/Button";
-import PropTypes from "prop-types";
+import { Button } from '../components/ui/Button';
+import PropTypes from 'prop-types';
 
 export const ButtonBasic = ({ onClick, link, color, size, children }) => {
   return (

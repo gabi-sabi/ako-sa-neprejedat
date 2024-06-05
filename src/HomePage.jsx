@@ -1,5 +1,6 @@
-import { Link } from "react-router-dom";
-import { ButtonBasic } from "./components/ButtonBasic";
+import { Link } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
+import { ButtonBasic } from './components/ButtonBasic';
 
 export const HomePage = () => {
   return (
@@ -8,7 +9,7 @@ export const HomePage = () => {
         <div className="flex flex-row items-center justify-center gap-4">
           <div className=" w-1/2 flex flex-col items-center gap-20">
             <h1 className="text-white text-center text-5xl">
-              <span className="font-thin break-all">AKO SA PRESTAŤ</span>{" "}
+              <span className="font-thin break-all">AKO SA PRESTAŤ</span>{' '}
               <span className="font-black">PREJEDAŤ?</span>
             </h1>
             <h2 className="text-white text-5xl font-thin italic">s nami!</h2>
