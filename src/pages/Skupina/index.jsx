@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { toast } from "react-hot-toast";
 import skupina_main from "../../assets/skupina_main.jpg";
 import { SelectTimeSlot } from "@/components/SelectTimeSlot";
@@ -7,6 +8,28 @@ import { Input } from "../../components/ui/input";
 import { DialogBank } from "../../components/DialogBank";
 
 export const SkupinaPage = () => {
+  const [inputValue, setInputValue] = useState("");
+  const [error, setError] = useState("");
+
+  const handleInputChange = (e) => {
+    const value = e.target.value;
+    setInputValue(value);
+
+    // Validate if the input is not empty
+    if (!value.trim()) {
+      setError("Toto pole je povinné.");
+    } else {
+      setError("");
+    }
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (!error) {
+      // Submit form
+    }
+  };
+
   const notify = () =>
     toast.success(
       <p className="text-center text-2xl">
@@ -61,10 +84,13 @@ export const SkupinaPage = () => {
               obdržaní platby. Teším sa na vás.
             </p>
           </div>
-          <form className="grid gap-4 flex-1">
+          <form onSubmit={handleSubmit} className="grid gap-4 flex-1">
             <div className="grid gap-2">
               <Label htmlFor="name">Meno a priezvisko</Label>
               <Input
+                type="text"
+                value={inputValue}
+                onChange={handleInputChange}
                 className="cursor-pointer"
                 id="name"
                 placeholder="Zadejte meno a priezvisko"
@@ -74,9 +100,11 @@ export const SkupinaPage = () => {
             <div className="grid gap-2">
               <Label htmlFor="email">E-mail</Label>
               <Input
+                type="email"
+                value={inputValue}
+                onChange={handleInputChange}
                 className="cursor-pointer"
                 id="email"
-                type="email"
                 placeholder="Zadajte e-mail"
                 required
               />
@@ -87,6 +115,7 @@ export const SkupinaPage = () => {
               value3="pondelok 23. 9. 2024 19:00-20:00"
               value4="štvrtok 26. 9. 2024 19:00-20:00"
             />
+            {error && <p>{error}</p>}
             <Button type="submit" size="lg" className="w-full" onClick={notify}>
               Príjdem
             </Button>
