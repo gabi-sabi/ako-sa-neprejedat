@@ -1,52 +1,8 @@
-import { useState } from "react";
-import { toast } from "react-hot-toast";
 import skupina_main from "../../assets/skupina_main.jpg";
-import { SelectTimeSlot } from "@/components/SelectTimeSlot";
-import { Button } from "../../components/ui/Button";
-import { Label } from "../../components/ui/label";
-import { Input } from "../../components/ui/input";
+import { FormSkupina } from "../../components/FormSkupina";
 import { DialogBank } from "../../components/DialogBank";
 
 export const SkupinaPage = () => {
-  const [inputValue, setInputValue] = useState("");
-  const [error, setError] = useState("");
-
-  const handleInputChange = (e) => {
-    const value = e.target.value;
-    setInputValue(value);
-
-    // Validate if the input is not empty
-    if (!value.trim()) {
-      setError("Toto pole je povinné.");
-    } else {
-      setError("");
-    }
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if (!error) {
-      // Submit form
-    }
-  };
-
-  const notify = () =>
-    toast.success(
-      <p className="text-center text-2xl">
-        <span>
-          Rezervácia prebehla{" "}
-          <span className="font-bold text-light-green">úspešne!</span>
-        </span>
-        <br />
-        <span>Teším sa na vás online.</span>
-      </p>,
-      {
-        duration: 8000,
-        position: "top-center",
-        icon: "👏",
-      },
-    );
-
   return (
     <div className="flex flex-col gap-4 py-4 px-4 items-center justify-center lg:flex-row lg:gap-8 lg:py-20 lg:px-60">
       <div className="flex w-full items-stretch justify-center lg:w-1/2">
@@ -84,42 +40,7 @@ export const SkupinaPage = () => {
               obdržaní platby. Teším sa na vás.
             </p>
           </div>
-          <form onSubmit={handleSubmit} className="grid gap-4 flex-1">
-            <div className="grid gap-2">
-              <Label htmlFor="name">Meno a priezvisko</Label>
-              <Input
-                type="text"
-                value={inputValue}
-                onChange={handleInputChange}
-                className="cursor-pointer"
-                id="name"
-                placeholder="Zadejte meno a priezvisko"
-                required
-              />
-            </div>
-            <div className="grid gap-2">
-              <Label htmlFor="email">E-mail</Label>
-              <Input
-                type="email"
-                value={inputValue}
-                onChange={handleInputChange}
-                className="cursor-pointer"
-                id="email"
-                placeholder="Zadajte e-mail"
-                required
-              />
-            </div>
-            <SelectTimeSlot
-              value1="pondelok 16. 9. 2024 19:00-20:00"
-              value2="štvrtok 19. 9. 2024 19:00-20:00"
-              value3="pondelok 23. 9. 2024 19:00-20:00"
-              value4="štvrtok 26. 9. 2024 19:00-20:00"
-            />
-            {error && <p>{error}</p>}
-            <Button type="submit" size="lg" className="w-full" onClick={notify}>
-              Príjdem
-            </Button>
-          </form>
+          <FormSkupina />
         </div>
       </div>
     </div>

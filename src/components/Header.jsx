@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 
 const HeaderItem = ({ href, children, borderColor, textColor }) => {
   return (
-    <li className={`border-b border-${borderColor} my-8 uppercase`}>
+    <li className={`border-b border-${borderColor} no-underline my-8 uppercase`}>
       <a
         href={href}
         className={`font-medium py-2 px-3 text-${textColor} hover:text-blue-700 md:p-0`}
@@ -114,7 +114,7 @@ export const Header = () => {
             Ako sa neprejedať
           </a>
           <div className="DESKTOP-MENU items-center justify-between flex w-auto">
-            <ul className=" hidden flex text-white p-4 md:p-0 bg-transparent md:space-x-8 lg:flex">
+            <ul className=" hidden flex text-white no-underline p-4 md:p-0 bg-transparent md:space-x-8 lg:flex">
               {headerItems.map((item, index) => (
                 <HeaderItem
                   key={index}
