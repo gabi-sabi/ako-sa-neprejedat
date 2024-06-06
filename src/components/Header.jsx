@@ -2,12 +2,12 @@ import { useState } from "react";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import PropTypes from "prop-types";
 
-const HeaderItem = ({ href, children }) => {
+const HeaderItem = ({ href, children, borderColor, textColor }) => {
   return (
-    <li className="border-b border-gray-400 my-8 uppercase">
+    <li className={`border-b border-${borderColor} my-8 uppercase`}>
       <a
         href={href}
-        className="font-medium py-2 px-3 text-black hover:text-blue-700 md:p-0"
+        className={`font-medium py-2 px-3 text-${textColor} hover:text-blue-700 md:p-0`}
       >
         {children}
       </a>
@@ -18,6 +18,8 @@ const HeaderItem = ({ href, children }) => {
 HeaderItem.propTypes = {
   href: PropTypes.string.isRequired,
   children: PropTypes.node.isRequired,
+  borderColor: PropTypes.string.isRequired,
+  textColor: PropTypes.string.isRequired,
 };
 
 const AvatarButton = () => {
@@ -99,7 +101,12 @@ export const Header = () => {
               </div>
               <ul className="flex flex-col items-center justify-between min-h-[250px]">
                 {headerItems.map((item, index) => (
-                  <HeaderItem key={index} href={item.href}>
+                  <HeaderItem
+                    key={index}
+                    href={item.href}
+                    textColor="black"
+                    borderColor="black"
+                  >
                     {item.text}
                   </HeaderItem>
                 ))}
@@ -110,9 +117,14 @@ export const Header = () => {
             Ako sa neprejedať
           </a>
           <div className="DESKTOP-MENU items-center justify-between flex w-auto">
-            <ul className=" hidden flex p-4 md:p-0 bg-transparent md:space-x-8 lg:flex">
+            <ul className=" hidden flex text-white p-4 md:p-0 bg-transparent md:space-x-8 lg:flex">
               {headerItems.map((item, index) => (
-                <HeaderItem key={index} href={item.href}>
+                <HeaderItem
+                  key={index}
+                  href={item.href}
+                  textColor="white"
+                  borderColor="transparent"
+                >
                   {item.text}
                 </HeaderItem>
               ))}
