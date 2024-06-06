@@ -8,9 +8,9 @@ import { HryPage } from './pages/Hry';
 import { Header } from '../src/components/Header';
 import { Footer } from '../src/components/Footer';
 import './App.css';
-import { BreathingExercises } from './pages/Hry/Breathing exercises';
-import { Diferencies } from './pages/Hry/Diferencies';
-import { Counting } from './pages/Hry/Counting';
+import { BreathingExercisesPage } from './pages/Hry/Breathing exercises';
+import { DiferenciesPage } from './pages/Hry/Diferencies';
+import { CountingPage } from './pages/Hry/Counting';
 
 export const App = () => {
   return (
@@ -23,9 +23,9 @@ export const App = () => {
         <Route path="/konzultacia" element={<KonzultaciaPage />} />
         <Route path="/o-nas" element={<ONasPage />} />
         <Route path="/hry" element={<HryPage />} />
-        <Route path="/dychacie-cvicenie" element={<BreathingExercises />} />
-        <Route path="/rozdiely" element={<Diferencies />} />
-        <Route path="/pocitanie" element={<Counting />} />
+        <Route path="/dychacie-cvicenie" element={<BreathingExercisesPage />} />
+        <Route path="/rozdiely" element={<DiferenciesPage />} />
+        <Route path="/pocitanie" element={<CountingPage />} />
       </Routes>
       <Footer />
     </div>
