@@ -3,15 +3,15 @@ import { DialogBank } from "../../components/DialogBank";
 
 export const KonzultaciaPage = () => {
   return (
-    <div className="flex flex-col gap-4 py-4 px-4 items-center justify-center md:flex-row md:gap-8 md:py-20 md:px-60">
-      <div className="flex w-full items-stretch justify-center md:w-1/2">
+    <div className="flex flex-col gap-4 py-4 px-4 items-center justify-center md:flex-row lg:gap-8 md:py-20 md:px-60">
+      <div className="flex w-full items-stretch justify-center lg:w-1/2">
         <img
           src={konz_main}
           alt="ProfilePicture"
           className="h-full rounded-lg object-fit"
         />
       </div>
-      <div className="flex flex-col w-full md:w-1/2">
+      <div className="flex flex-col w-full lg:w-1/2">
         <h1 className="text-bold text-4xl text-center">
           Objednajte sa na konzultáciu
         </h1>

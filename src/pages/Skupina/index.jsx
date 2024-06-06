@@ -48,15 +48,15 @@ export const SkupinaPage = () => {
     );
 
   return (
-    <div className="flex flex-col gap-4 py-4 px-4 items-center justify-center md:flex-row md:gap-8 md:py-20 md:px-60">
-      <div className="flex w-full items-stretch justify-center md:w-1/2">
+    <div className="flex flex-col gap-4 py-4 px-4 items-center justify-center lg:flex-row lg:gap-8 lg:py-20 lg:px-60">
+      <div className="flex w-full items-stretch justify-center lg:w-1/2">
         <img
           src={skupina_main}
           alt="ProfilePicture"
           className="h-full rounded-lg object-fit"
         />
       </div>
-      <div className="flex flex-col w-full md:w-1/2">
+      <div className="flex flex-col w-full lg:w-1/2">
         <h1 className="text-bold text-4xl text-center">Podporná skupina</h1>
         <br />
         <div className="grid gap-4">
