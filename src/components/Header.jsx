@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { UserRound } from "lucide-react";
 import PropTypes from "prop-types";
 
 const HeaderItem = ({ href, children, borderColor, textColor }) => {
@@ -26,17 +26,14 @@ const AvatarButton = () => {
   return (
     <button
       type="button"
-      className="flex text-sm bg-gray-800 rounded-full md:me-0 focus:ring-4 focus:ring-gray-300 "
+      className="flex text-lg bg-white  rounded-full p-2 md:me-0 focus:ring-2 focus:ring-gray-30 "
       id="user-menu-button"
       aria-expanded="false"
       data-dropdown-toggle="user-dropdown"
       data-dropdown-placement="bottom"
     >
       <span className="sr-only">Open user menu</span>
-      <Avatar>
-        <AvatarImage />
-        <AvatarFallback>CN</AvatarFallback>
-      </Avatar>
+      <UserRound color="grey" size="24" />
     </button>
   );
 };

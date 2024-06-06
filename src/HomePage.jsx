@@ -9,7 +9,9 @@ export const HomePage = () => {
           <span className="font-thin break-all">AKO SA PRESTAŤ</span>{" "}
           <span className="font-black">PREJEDAŤ?</span>
         </h1>
-        <h2 className="text-white font-thin italic text-3xl md:text-4xl lg:text-5xl">s nami!</h2>
+        <h2 className="text-white font-thin italic text-3xl md:text-4xl lg:text-5xl">
+          s nami!
+        </h2>
       </div>
       <div className=" w-full grid grid-cols-1 justify-items-center md:w-1/2">
         <div className="w-full grid gap-4 md:2/3 lg:w-1/2">
