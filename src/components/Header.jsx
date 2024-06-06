@@ -1,12 +1,13 @@
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { useState } from "react";
+import { UserRound } from "lucide-react";
 import PropTypes from "prop-types";
 
-const HeaderItem = ({ href, children }) => {
+const HeaderItem = ({ href, children, borderColor, textColor }) => {
   return (
-    <li>
+    <li className={`border-b border-${borderColor} my-8 uppercase`}>
       <a
         href={href}
-        className="font-medium py-2 px-3 text-white hover:text-blue-700 md:p-0"
+        className={`font-medium py-2 px-3 text-${textColor} hover:text-blue-700 md:p-0`}
       >
         {children}
       </a>
@@ -17,23 +18,22 @@ const HeaderItem = ({ href, children }) => {
 HeaderItem.propTypes = {
   href: PropTypes.string.isRequired,
   children: PropTypes.node.isRequired,
+  borderColor: PropTypes.string.isRequired,
+  textColor: PropTypes.string.isRequired,
 };
 
 const AvatarButton = () => {
   return (
     <button
       type="button"
-      className="flex text-sm bg-gray-800 rounded-full md:me-0 focus:ring-4 focus:ring-gray-300 "
+      className="flex text-lg bg-white  rounded-full p-2 md:me-0 focus:ring-2 focus:ring-gray-30 "
       id="user-menu-button"
       aria-expanded="false"
       data-dropdown-toggle="user-dropdown"
       data-dropdown-placement="bottom"
     >
       <span className="sr-only">Open user menu</span>
-      <Avatar>
-        <AvatarImage />
-        <AvatarFallback>CN</AvatarFallback>
-      </Avatar>
+      <UserRound color="grey" size="24" />
     </button>
   );
 };
@@ -62,23 +62,93 @@ const headerItems = [
 ];
 
 export const Header = () => {
+  const [isNavOpen, setIsNavOpen] = useState(false);
+
   return (
-    <nav className="bg-transparent text-white">
-      <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-        <a href="/" className="text-2xl font-semibold whitespace-nowrap">
-          Ako sa neprejedať
-        </a>
-        <div className="items-center justify-between flex w-auto">
-          <ul className="flex p-4 md:p-0 bg-transparent md:space-x-8">
-            {headerItems.map((item, index) => (
-              <HeaderItem key={index} href={item.href}>
-                {item.text}
-              </HeaderItem>
-            ))}
-          </ul>
+    <div>
+      <nav className="bg-transparent text-white">
+        <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+          <section className="MOBILE-MENU flex lg:hidden">
+            <div
+              className="HAMBURGER-ICON space-y-2"
+              onClick={() => setIsNavOpen((prev) => !prev)}
+            >
+              <span className="block h-0.5 w-8 animate-pulse bg-white"></span>
+              <span className="block h-0.5 w-8 animate-pulse bg-white"></span>
+              <span className="block h-0.5 w-8 animate-pulse bg-white"></span>
+            </div>
+
+            <div className={isNavOpen ? "showMenuNav" : "hideMenuNav"}>
+              <div
+                className="absolute top-0 right-0 px-8 py-8"
+                onClick={() => setIsNavOpen(false)}
+              >
+                <svg
+                  className="h-8 w-8 text-gray-600"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <line x1="18" y1="6" x2="6" y2="18" />
+                  <line x1="6" y1="6" x2="18" y2="18" />
+                </svg>
+              </div>
+              <ul className="flex flex-col items-center justify-between min-h-[250px]">
+                {headerItems.map((item, index) => (
+                  <HeaderItem
+                    key={index}
+                    href={item.href}
+                    textColor="black"
+                    borderColor="black"
+                  >
+                    {item.text}
+                  </HeaderItem>
+                ))}
+              </ul>
+            </div>
+          </section>
+          <a href="/" className="text-2xl font-semibold whitespace-nowrap">
+            Ako sa neprejedať
+          </a>
+          <div className="DESKTOP-MENU items-center justify-between flex w-auto">
+            <ul className=" hidden flex text-white p-4 md:p-0 bg-transparent md:space-x-8 lg:flex">
+              {headerItems.map((item, index) => (
+                <HeaderItem
+                  key={index}
+                  href={item.href}
+                  textColor="white"
+                  borderColor="transparent"
+                >
+                  {item.text}
+                </HeaderItem>
+              ))}
+            </ul>
+          </div>
+          <AvatarButton />
         </div>
-        <AvatarButton />
-      </div>
-    </nav>
+      </nav>
+      <style>{`
+      .hideMenuNav {
+        display: none;
+      }
+      .showMenuNav {
+        display: block;
+        position: absolute;
+        width: 100%;
+        height: 100vh;
+        top: 0;
+        left: 0;
+        background: white;
+        z-index: 10;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+      }
+    `}</style>
+    </div>
   );
 };
