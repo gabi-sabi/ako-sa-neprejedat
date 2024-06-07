@@ -4,7 +4,9 @@ import PropTypes from "prop-types";
 
 const HeaderItem = ({ href, children, borderColor, textColor }) => {
   return (
-    <li className={`border-b border-${borderColor} no-underline my-8 uppercase`}>
+    <li
+      className={`border-b border-${borderColor} no-underline my-8 uppercase`}
+    >
       <a
         href={href}
         className={`font-medium py-2 px-3 text-${textColor} hover:text-blue-700 md:p-0`}
