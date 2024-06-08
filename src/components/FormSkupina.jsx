@@ -31,7 +31,6 @@ const StyledSelect = styled.select`
   color: var(--blue);
   display: block;
   padding: 0.5rem;
-  margin-bottom: 1rem;
   border-radius: 0.5rem;
   width: 100%;
 `;
@@ -41,6 +40,7 @@ const StyledErrorMessage = styled.div`
   color: var(--red-600);
   width: 400px;
   margin-top: 0.25rem;
+  margin-bottom: 0.25rem;
   &:before {
     content: "❌ ";
     font-size: 10px;
@@ -86,15 +86,24 @@ export const FormSkupina = () => {
       },
     );
 
+    const handleSubmit = {values, { resetForm }} => {
+      console.log(values);
+      notify();
+      resetForm();
+    };
+
+    const initialValues = () => {
+        firstName:"",
+        lastName:"",
+        email:"",
+        termin:"",
+      };
+
   return (
     <>
       <Formik
-        initialValues={{
-          firstName: "",
-          lastName: "",
-          email: "",
-          termin: "",
-        }}
+        initialValues={initialValues}
+        onSubmit={handleSubmit}
         validationSchema={Yup.object({
           firstName: Yup.string()
             .max(15, "Meno musí obsahovať maximálne 15 písmen.")
@@ -109,10 +118,6 @@ export const FormSkupina = () => {
             .oneOf(["value1", "value2", "value3", "value4"], "Nesprávny výber")
             .required("Povinné pole"),
         })}
-        onSubmit={async (values, { setSubmitting }) => {
-          await new Promise((r) => setTimeout(r, 500));
-          setSubmitting(false);
-        }}
       >
         <Form>
           <MyTextInput
@@ -134,12 +139,13 @@ export const FormSkupina = () => {
             placeholder="novakovaj@domena.com"
           />
           <MySelect label="Termín" name="termin">
+          <option value="" disabled selected hidden> Vyberte si termín... </option>
             <option value="value1">pondelok 16. 9. 2024 19:00-20:00</option>
             <option value="value2">štvrtok 19. 9. 2024 19:00-20:00</option>
             <option value="value3">pondelok 23. 9. 2024 19:00-20:00</option>
             <option value="value4">štvrtok 26. 9. 2024 19:00-20:00</option>
           </MySelect>
-          <Button className="w-full" type="submit" onClick={notify}>
+          <Button className="w-full" type="submit">
             Prídem
           </Button>
         </Form>
