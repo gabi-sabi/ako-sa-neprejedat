@@ -3,6 +3,8 @@ import { gameData } from './gameData';
 import { isWithinDifferenceBoxes } from './gameLogic';
 import { Button } from '@/components/ui/Button';
 import _ from 'lodash';
+import useWindowSize from 'react-use/lib/useWindowSize';
+import Confetti from 'react-confetti';
 
 const GameImage = ({ src, onMouseDown, foundDifferences }) => {
   console.log(foundDifferences);
@@ -29,6 +31,7 @@ const GameImage = ({ src, onMouseDown, foundDifferences }) => {
 export const DiferenciesPage = () => {
   const [found, setFound] = useState([]);
   const [currentGameStateIndex, setCurrentGameStateIndex] = useState(0);
+  const { width, height } = useWindowSize();
 
   const currentGameState = useMemo(() => {
     console.log(gameData);
@@ -59,6 +62,9 @@ export const DiferenciesPage = () => {
 
   return (
     <div>
+      {found.length === currentGameState.differences.length && (
+        <Confetti width={width} height={height} recycle={false} />
+      )}
       <div className="flex justify-center">
         <GameImage
           src={currentGameState.file1}
