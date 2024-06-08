@@ -10,4 +10,14 @@ export default defineConfig({
       "@": path.resolve(__dirname, "./src"),
     },
   },
+  server: {
+    port: 5173, // Vite's port
+    proxy: {
+        '/api': {
+            target: 'http://localhost:3500', // Express server's port
+            changeOrigin: true,
+            secure: false,
+        }
+    }
+}
 });
