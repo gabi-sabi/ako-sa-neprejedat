@@ -1,21 +1,63 @@
+import { useState } from "react";
+import { toast } from "react-hot-toast";
 import skupina_main from "../../assets/skupina_main.jpg";
 import { SelectTimeSlot } from "@/components/SelectTimeSlot";
 import { Button } from "../../components/ui/Button";
 import { Label } from "../../components/ui/label";
 import { Input } from "../../components/ui/input";
+import { DialogBank } from "../../components/DialogBank";
 
 export const SkupinaPage = () => {
+  const [inputValue, setInputValue] = useState("");
+  const [error, setError] = useState("");
+
+  const handleInputChange = (e) => {
+    const value = e.target.value;
+    setInputValue(value);
+
+    // Validate if the input is not empty
+    if (!value.trim()) {
+      setError("Toto pole je povinné.");
+    } else {
+      setError("");
+    }
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (!error) {
+      // Submit form
+    }
+  };
+
+  const notify = () =>
+    toast.success(
+      <p className="text-center text-2xl">
+        <span>
+          Rezervácia prebehla{" "}
+          <span className="font-bold text-light-green">úspešne!</span>
+        </span>
+        <br />
+        <span>Teším sa na vás online.</span>
+      </p>,
+      {
+        duration: 8000,
+        position: "top-center",
+        icon: "👏",
+      },
+    );
+
   return (
-    <div className="flex flex-row gap-8 py-20 px-60 items-center justify-center">
-      <div className="flex w-1/2 items-stretch justify-center">
+    <div className="flex flex-col gap-4 py-4 px-4 items-center justify-center lg:flex-row lg:gap-8 lg:py-20 lg:px-60">
+      <div className="flex w-full items-stretch justify-center lg:w-1/2">
         <img
           src={skupina_main}
           alt="ProfilePicture"
           className="h-full rounded-lg object-fit"
         />
       </div>
-      <div className="flex flex-col w-1/2">
-        <h1 className="text-bold text-4xl">Podporná skupina</h1>
+      <div className="flex flex-col w-full lg:w-1/2">
+        <h1 className="text-bold text-4xl text-center">Podporná skupina</h1>
         <br />
         <div className="grid gap-4">
           <div className="text-justify text-lg">
@@ -29,19 +71,43 @@ export const SkupinaPage = () => {
             </p>
             <br />
             <p>
-              Každé stretnutie je viazané úhradou poplatku 10€ na účet. Link k
-              pripojeniu posielam na e-mail vždy bezprostredne po obdržaní
-              platby. Teším sa na vás.
+              Každé stretnutie je viazané úhradou poplatku 10€ na{" "}
+              <DialogBank
+                accountName="Gabriela Sabolová"
+                iban="SK7583605207004208607176"
+                bankCode="8360"
+                bankInfo="BREXSA (mBank S.A. Pribinova 10
+                  811 09 Bratislava)"
+                swift="BREXSKBX"
+              />
+              . Link k pripojeniu posielam na e-mail vždy bezprostredne po
+              obdržaní platby. Teším sa na vás.
             </p>
           </div>
-          <form className="grid gap-4 flex-1">
+          <form onSubmit={handleSubmit} className="grid gap-4 flex-1">
             <div className="grid gap-2">
               <Label htmlFor="name">Meno a priezvisko</Label>
-              <Input id="name" placeholder="Zadejte meno a priezvisko" />
+              <Input
+                type="text"
+                value={inputValue}
+                onChange={handleInputChange}
+                className="cursor-pointer"
+                id="name"
+                placeholder="Zadejte meno a priezvisko"
+                required
+              />
             </div>
             <div className="grid gap-2">
               <Label htmlFor="email">E-mail</Label>
-              <Input id="email" type="email" placeholder="Zadajte e-mail" />
+              <Input
+                type="email"
+                value={inputValue}
+                onChange={handleInputChange}
+                className="cursor-pointer"
+                id="email"
+                placeholder="Zadajte e-mail"
+                required
+              />
             </div>
             <SelectTimeSlot
               value1="pondelok 16. 9. 2024 19:00-20:00"
@@ -49,7 +115,8 @@ export const SkupinaPage = () => {
               value3="pondelok 23. 9. 2024 19:00-20:00"
               value4="štvrtok 26. 9. 2024 19:00-20:00"
             />
-            <Button type="submit" size="lg" className="w-full">
+            {error && <p>{error}</p>}
+            <Button type="submit" size="lg" className="w-full" onClick={notify}>
               Príjdem
             </Button>
           </form>

@@ -6,7 +6,7 @@ export const QuestionList = () => {
   const [selectedId, setSelectedId] = useState(null);
 
   return (
-    <div className="flex-col justify-center items-center w-1/2 text-center">
+    <div className="flex-col justify-center items-center w-full text-center md:w-1/2">
       {data.map((area) => (
         <Question
           key={area.id}
