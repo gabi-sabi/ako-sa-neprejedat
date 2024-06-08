@@ -1,3 +1,4 @@
+require("dotenv").config();
 const express = require("express");
 const nodemailer = require("nodemailer");
 const cors = require("cors");
@@ -17,7 +18,7 @@ const transporter = nodemailer.createTransport({
 
 app.post("/api/send", (req, res) => {
   const mailOptions = {
-    from: req.body.from,
+    from: process.env.EMAIL_ADDRESS,
     to: req.body.to,
     subject: req.body.subject,
     html: req.body.message
@@ -31,7 +32,6 @@ app.post("/api/send", (req, res) => {
 });
 
 app.get("/api", (req, res) => {
-  console.log("jsem tu")
   res.send({ message: "Hello from Express!" });
 });
 app.listen(port, () => console.log(`Listening on port ${port}`));

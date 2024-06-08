@@ -1,31 +1,16 @@
 import { useState } from "react";
-//import axios from "axios";
+import axios from "axios";
 
 export const EmailForm = () => {
   const [to, setTo] = useState("");
   const [subject, setSubject] = useState("");
   const [message, setMessage] = useState("");
 
-  const callBackendAPI = async () => {
-    try {
-      const response = await fetch("/api/send");
-      if (!response.ok) {
-        throw new Error("Failed to fetch data");
-      }
-      const body = await response.json();
-      console.log({ body });
-      setData(body.message);
-    } catch (error) {
-      console.error(error.message);
-    }
-  };
-
   const handleSubmit = async (e) => {
     e.preventDefault();
     console.log({ to, subject, message });
     try {
       await axios.post("/api/send", {
-        from: "my@email.com",
         to,
         subject,
         message,

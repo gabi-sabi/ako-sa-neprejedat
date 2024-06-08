@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { Routes, Route } from 'react-router-dom';
 import { HomePage } from './HomePage';
 import { PrvaPomocPage } from './pages/PrvaPomoc';
@@ -15,24 +15,6 @@ import { DiferenciesPage } from './pages/Hry/Diferencies';
 import { CountingPage } from './pages/Hry/Counting';
 
 export const App = () => {
-  const [data, setData] = useState(null);
-
-  useEffect(() => {
-    const callBackendAPI = async () => {
-      try {
-        const response = await fetch("/api")
-        if (!response.ok) {
-          throw new Error("Failed to fetch data");
-        }
-        const body = await response.json();
-        console.log({body})
-        setData(body.message);
-      } catch (error) {
-        console.error(error.message);
-      }
-    };
-    callBackendAPI();
-  }, []);
 
   return (
     <>
@@ -40,7 +22,7 @@ export const App = () => {
       <div className="grid grid-rows-[auto_1fr_auto] min-h-screen">
         <Header />
         <Routes>
-          <Route path="/" element={<HomePage data={data}/>} />
+          <Route path="/" element={<HomePage />} />
           <Route path="/prvapomoc" element={<PrvaPomocPage />} />
           <Route path="/skupina" element={<SkupinaPage />} />
           <Route path="/konzultacia" element={<KonzultaciaPage />} />
