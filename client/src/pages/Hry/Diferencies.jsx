@@ -48,7 +48,11 @@ export const DiferenciesPage = () => {
         onMouseDown={handleImageClick}
         foundDifferences={found}
       />
-      <GameImage src={currentGameState.file2} onMouseDown={handleImageClick} />
+      <GameImage
+        src={currentGameState.file2}
+        onMouseDown={handleImageClick}
+        foundDifferences={found}
+      />
     </div>
   );
 };
