@@ -15,7 +15,7 @@ const MyTextInput = ({ label, ...props }) => {
       <Label htmlFor={props.id || props.name}>{label}</Label>
       <Input className="text-input" {...field} {...props} />
       {meta.touched && meta.error ? (
-        <div className="error">{meta.error}</div>
+        <StyledErrorMessage>{meta.error}</StyledErrorMessage>
       ) : null}
     </>
   );
@@ -37,6 +37,7 @@ const StyledSelect = styled.select`
 
 const StyledErrorMessage = styled.div`
   font-size: 12px;
+  font-weight: bold;
   color: var(--red-600);
   width: 400px;
   margin-top: 0.25rem;
@@ -86,18 +87,18 @@ export const FormSkupina = () => {
       },
     );
 
-    const handleSubmit = {values, { resetForm }} => {
-      console.log(values);
-      notify();
-      resetForm();
-    };
+  const handleSubmit = (values, { resetForm }) => {
+    console.log(values);
+    notify();
+    resetForm();
+  };
 
-    const initialValues = () => {
-        firstName:"",
-        lastName:"",
-        email:"",
-        termin:"",
-      };
+  const initialValues = {
+    firstName: "",
+    lastName: "",
+    email: "",
+    termin: "",
+  };
 
   return (
     <>
@@ -139,13 +140,16 @@ export const FormSkupina = () => {
             placeholder="novakovaj@domena.com"
           />
           <MySelect label="Termín" name="termin">
-          <option value="" disabled selected hidden> Vyberte si termín... </option>
+            <option value="" disabled selected hidden>
+              {" "}
+              Vyberte si termín...{" "}
+            </option>
             <option value="value1">pondelok 16. 9. 2024 19:00-20:00</option>
             <option value="value2">štvrtok 19. 9. 2024 19:00-20:00</option>
             <option value="value3">pondelok 23. 9. 2024 19:00-20:00</option>
             <option value="value4">štvrtok 26. 9. 2024 19:00-20:00</option>
           </MySelect>
-          <Button className="w-full" type="submit">
+          <Button className="w-full mt-4" type="submit">
             Prídem
           </Button>
         </Form>
