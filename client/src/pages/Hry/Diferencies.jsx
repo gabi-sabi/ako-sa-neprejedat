@@ -7,7 +7,6 @@ import useWindowSize from 'react-use/lib/useWindowSize';
 import Confetti from 'react-confetti';
 
 const GameImage = ({ src, onMouseDown, foundDifferences }) => {
-  console.log(foundDifferences);
   return (
     <div className="relative">
       <img src={src} onMouseDown={onMouseDown} />
@@ -34,7 +33,6 @@ export const DiferenciesPage = () => {
   const { width, height } = useWindowSize();
 
   const currentGameState = useMemo(() => {
-    console.log(gameData);
     return gameData[currentGameStateIndex];
   }, [currentGameStateIndex]);
 
@@ -56,7 +54,6 @@ export const DiferenciesPage = () => {
 
     if (clickedDifference) {
       setFound([...found, clickedDifference]);
-      console.log(clickedDifference);
     }
   });
 
