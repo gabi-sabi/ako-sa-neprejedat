@@ -2,10 +2,10 @@ import { useState } from "react";
 import { UserRound } from "lucide-react";
 import PropTypes from "prop-types";
 
-const HeaderItem = ({ href, children, borderColor, textColor }) => {
+const HeaderItem = ({ href, children, borderColor, textColor, border }) => {
   return (
     <li
-      className={`border-b border-${borderColor} no-underline my-8 uppercase`}
+      className={`${border} border-${borderColor} no-underline my-8 uppercase`}
     >
       <a
         href={href}
@@ -22,6 +22,7 @@ HeaderItem.propTypes = {
   children: PropTypes.node.isRequired,
   borderColor: PropTypes.string.isRequired,
   textColor: PropTypes.string.isRequired,
+  border: PropTypes.string.isRequired,
 };
 
 const AvatarButton = () => {
@@ -105,6 +106,7 @@ export const Header = () => {
                     href={item.href}
                     textColor="black"
                     borderColor="black"
+                    border="border-b"
                   >
                     {item.text}
                   </HeaderItem>
@@ -122,7 +124,7 @@ export const Header = () => {
                   key={index}
                   href={item.href}
                   textColor="white"
-                  borderColor="transparent"
+                  borderColor=""
                 >
                   {item.text}
                 </HeaderItem>
