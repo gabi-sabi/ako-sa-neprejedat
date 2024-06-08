@@ -2,9 +2,11 @@ import { useState } from "react";
 import { UserRound } from "lucide-react";
 import PropTypes from "prop-types";
 
-const HeaderItem = ({ href, children, borderColor, textColor }) => {
+const HeaderItem = ({ href, children, borderColor, textColor, border }) => {
   return (
-    <li className={`border-b border-${borderColor} my-8 uppercase`}>
+    <li
+      className={`${border} border-${borderColor} no-underline my-8 uppercase`}
+    >
       <a
         href={href}
         className={`font-medium py-2 px-3 text-${textColor} hover:text-blue-700 md:p-0`}
@@ -20,6 +22,7 @@ HeaderItem.propTypes = {
   children: PropTypes.node.isRequired,
   borderColor: PropTypes.string.isRequired,
   textColor: PropTypes.string.isRequired,
+  border: PropTypes.string.isRequired,
 };
 
 const AvatarButton = () => {
@@ -103,6 +106,7 @@ export const Header = () => {
                     href={item.href}
                     textColor="black"
                     borderColor="black"
+                    border="border-b"
                   >
                     {item.text}
                   </HeaderItem>
@@ -114,13 +118,13 @@ export const Header = () => {
             Ako sa neprejedať
           </a>
           <div className="DESKTOP-MENU items-center justify-between flex w-auto">
-            <ul className=" hidden flex text-white p-4 md:p-0 bg-transparent md:space-x-8 lg:flex">
+            <ul className=" hidden flex text-white no-underline p-4 md:p-0 bg-transparent md:space-x-8 lg:flex">
               {headerItems.map((item, index) => (
                 <HeaderItem
                   key={index}
                   href={item.href}
                   textColor="white"
-                  borderColor="transparent"
+                  borderColor=""
                 >
                   {item.text}
                 </HeaderItem>
