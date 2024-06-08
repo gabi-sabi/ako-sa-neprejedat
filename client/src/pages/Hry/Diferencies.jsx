@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { gameData } from './gameData';
 import { isWithinDifferenceBoxes } from './gameLogic';
+import { Button } from '@/components/ui/Button';
 
 const GameImage = ({ src, onMouseDown, foundDifferences }) => {
   console.log(foundDifferences);
@@ -42,17 +43,28 @@ export const DiferenciesPage = () => {
     }
   };
   return (
-    <div className="flex justify-center">
-      <GameImage
-        src={currentGameState.file1}
-        onMouseDown={handleImageClick}
-        foundDifferences={found}
-      />
-      <GameImage
-        src={currentGameState.file2}
-        onMouseDown={handleImageClick}
-        foundDifferences={found}
-      />
+    <div>
+      <div className="flex justify-center">
+        <GameImage
+          src={currentGameState.file1}
+          onMouseDown={handleImageClick}
+          foundDifferences={found}
+        />
+        <GameImage
+          src={currentGameState.file2}
+          onMouseDown={handleImageClick}
+          foundDifferences={found}
+        />
+      </div>
+      <div className="flex justify-between py-6 px-6 md:px-16 lg:px-32">
+        <span>
+          nalezeno {found.length}/{currentGameState.differences.length}
+        </span>
+        <span>text</span>
+        <Button disabled={found.length < currentGameState.differences.length}>
+          dalsi
+        </Button>
+      </div>
     </div>
   );
 };
