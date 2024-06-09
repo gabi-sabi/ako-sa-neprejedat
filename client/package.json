@@ -24,6 +24,7 @@
     "axios": "^1.7.2",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
+    "dayjs": "^1.11.11",
     "formik": "^2.4.6",
     "lucide-react": "^0.378.0",
     "prop-types": "^15.8.1",
