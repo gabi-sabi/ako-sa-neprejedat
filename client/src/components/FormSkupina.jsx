@@ -14,7 +14,7 @@ const MyTextInput = ({ label, ...props }) => {
   return (
     <>
       <Label htmlFor={props.id || props.name}>{label}</Label>
-      <Input className="text-input" {...field} {...props} />
+      <Input {...field} {...props} />
       {meta.touched && meta.error ? (
         <StyledErrorMessage>{meta.error}</StyledErrorMessage>
       ) : null}
@@ -152,8 +152,7 @@ export const FormSkupina = () => {
           />
           <MySelect label="Termín" name="termin">
             <option value="" disabled selected hidden>
-              {' '}
-              Vyberte si termín...{' '}
+              Vyberte si termín...
             </option>
             <option value="value1">pondelok 16. 9. 2024 19:00-20:00</option>
             <option value="value2">štvrtok 19. 9. 2024 19:00-20:00</option>
