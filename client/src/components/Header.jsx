@@ -1,21 +1,20 @@
-import { useState } from "react";
-import { UserRound } from "lucide-react";
-import PropTypes from "prop-types";
+import { useState } from 'react'
+import { UserRound } from 'lucide-react'
+import PropTypes from 'prop-types'
+import { Link } from 'react-router-dom'
 
 const HeaderItem = ({ href, children, borderColor, textColor, border }) => {
   return (
-    <li
-      className={`${border} border-${borderColor} no-underline my-8 uppercase`}
-    >
-      <a
-        href={href}
+    <li className={`${border} border-${borderColor} no-underline my-8 uppercase`}>
+      <Link
+        to={href}
         className={`font-medium py-2 px-3 text-${textColor} hover:text-blue-700 md:p-0`}
       >
         {children}
-      </a>
+      </Link>
     </li>
-  );
-};
+  )
+}
 
 HeaderItem.propTypes = {
   href: PropTypes.string.isRequired,
@@ -23,7 +22,7 @@ HeaderItem.propTypes = {
   borderColor: PropTypes.string.isRequired,
   textColor: PropTypes.string.isRequired,
   border: PropTypes.string.isRequired,
-};
+}
 
 const AvatarButton = () => {
   return (
@@ -36,36 +35,39 @@ const AvatarButton = () => {
       data-dropdown-placement="bottom"
     >
       <span className="sr-only">Open user menu</span>
-      <UserRound color="grey" size="24" />
+      <UserRound
+        color="grey"
+        size="24"
+      />
     </button>
-  );
-};
+  )
+}
 
 const headerItems = [
   {
-    href: "/prvapomoc",
-    text: "Prvá pomoc",
+    href: '/prvapomoc',
+    text: 'Prvá pomoc',
   },
   {
-    href: "/skupina",
-    text: "Podporná skupina",
+    href: '/skupina',
+    text: 'Podporná skupina',
   },
   {
-    href: "/konzultacia",
-    text: "Konzultácia",
+    href: '/konzultacia',
+    text: 'Konzultácia',
   },
   {
-    href: "/o-nas",
-    text: "O nás",
+    href: '/o-nas',
+    text: 'O nás',
   },
   {
-    href: "/hry",
-    text: "Hry",
+    href: '/hry',
+    text: 'Hry',
   },
-];
+]
 
 export const Header = () => {
-  const [isNavOpen, setIsNavOpen] = useState(false);
+  const [isNavOpen, setIsNavOpen] = useState(false)
 
   return (
     <div>
@@ -81,7 +83,7 @@ export const Header = () => {
               <span className="block h-0.5 w-8 animate-pulse bg-white"></span>
             </div>
 
-            <div className={isNavOpen ? "showMenuNav" : "hideMenuNav"}>
+            <div className={isNavOpen ? 'showMenuNav' : 'hideMenuNav'}>
               <div
                 className="absolute top-0 right-0 px-8 py-8"
                 onClick={() => setIsNavOpen(false)}
@@ -95,8 +97,18 @@ export const Header = () => {
                   strokeLinecap="round"
                   strokeLinejoin="round"
                 >
-                  <line x1="18" y1="6" x2="6" y2="18" />
-                  <line x1="6" y1="6" x2="18" y2="18" />
+                  <line
+                    x1="18"
+                    y1="6"
+                    x2="6"
+                    y2="18"
+                  />
+                  <line
+                    x1="6"
+                    y1="6"
+                    x2="18"
+                    y2="18"
+                  />
                 </svg>
               </div>
               <ul className="flex flex-col items-center justify-between min-h-[250px]">
@@ -114,7 +126,10 @@ export const Header = () => {
               </ul>
             </div>
           </section>
-          <a href="/" className="text-2xl font-semibold whitespace-nowrap">
+          <a
+            href="/"
+            className="text-2xl font-semibold whitespace-nowrap"
+          >
             Ako sa neprejedať
           </a>
           <div className="DESKTOP-MENU items-center justify-between flex w-auto">
@@ -154,5 +169,5 @@ export const Header = () => {
       }
     `}</style>
     </div>
-  );
-};
+  )
+}
