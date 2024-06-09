@@ -2,7 +2,6 @@ import { useCallback, useEffect, useMemo, useState } from 'react';
 import { gameData } from './gameData';
 import { isWithinDifferenceBoxes } from './gameLogic';
 import { Button } from '@/components/ui/Button';
-import _ from 'lodash';
 import useWindowSize from 'react-use/lib/useWindowSize';
 import Confetti from 'react-confetti';
 
@@ -62,7 +61,7 @@ export const DiferenciesPage = () => {
       {found.length === currentGameState.differences.length && (
         <Confetti width={width} height={height} recycle={false} />
       )}
-      <div className="flex justify-center">
+      <div className="flex flex-col justify-center items-center md:flex-row">
         <GameImage
           src={currentGameState.file1}
           onMouseDown={handleImageClick}
@@ -74,15 +73,16 @@ export const DiferenciesPage = () => {
           foundDifferences={found}
         />
       </div>
-      <div className="flex justify-between py-6 px-6 md:px-16 lg:px-32">
-        <span>
+      <div className=" flex justify-between py-6 px-6 md:px-16 lg:px-32">
+        <span className="text-white font-bold text-xl">
           nalezeno {found.length}/{currentGameState.differences.length}
         </span>
         {/* TODO(Gabika): finalise text here */}
-        <span>najdi vsetky rozdiely</span>
+        <span className="text-white">najdi vsetky rozdiely</span>
         <Button
           disabled={found.length < currentGameState.differences.length}
           onClick={goToNextGame}
+          className="text-xl"
         >
           dalsi
         </Button>
