@@ -2,6 +2,11 @@ import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import path from 'path'
 
+const getBackEndUrl = () => {
+  return (
+    process.env.ENVIRONMENT === "PRODUCTION" ? "https://ako-sa-neprejedat.onrender.com" : 'http://localhost:3500' // Express server's port
+  )
+}
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react()],
@@ -13,10 +18,12 @@ export default defineConfig({
   server: {
     proxy: {
       '/api': {
-        target: 'http://localhost:3500', // Express server's port
+        target: getBackEndUrl(),
         changeOrigin: true,
         secure: false,
       },
     },
   },
 })
+
+
