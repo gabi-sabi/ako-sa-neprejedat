@@ -1,7 +1,1 @@
-{"scripts": {
-    "install": "cd client && npm install && cd ../server && npm install",
-    "start": "npm run server",
-    "server": "cd server && nodemon app.js",
-    "client": "cd client && npm run dev"
-}
-}
+{"scripts":{"install":"cd client && npm install && cd ../server && npm install","start":"npm run server","server":"cd server && nodemon app.js","client":"cd client && npm run dev"},"dependencies":{"dayjs":"^1.11.11"}}
