@@ -125,7 +125,7 @@ export const FormSkupina = () => {
         method: 'POST',
         url: 'api/send',
         payload: {
-          to: 'katacek@gmail.com', 
+          to: 'gsabolova5@gmail.com', 
           subject: 'vytvoreni rezervace',
           message: emailAdminBody,
         },
