@@ -8,6 +8,8 @@ import { Input } from '../components/ui/input';
 import { toast } from 'react-hot-toast';
 import PropTypes from 'prop-types';
 import axios from 'axios';
+import { getNextFourTimeslots } from '../lib/utils';
+import { useEffect, useState } from 'react';
 
 const MyTextInput = ({ label, ...props }) => {
   const [field, meta] = useField(props);
@@ -89,15 +91,12 @@ export const FormSkupina = () => {
     );
 
   const handleSubmit = async (values, { resetForm }) => {
-    console.log(values);
-
     const emailClientBody = `
       <html>
         <div>
           <p>Čauko, <b> ${values.firstName},</b></p>
           <p>
             potvrdzujem tvoju rezerváciu na skupinovú lekciu ${values.termin}, <br> Teším sa na teba
-           
           </p>
           <p>
             Gabriela Sabolova, dietologicka
@@ -131,6 +130,12 @@ export const FormSkupina = () => {
     resetForm();
   };
 
+  const [timeSlots, setTimeSlots] = useState([]);
+  useEffect(() => {
+    const newTimeslots = getNextFourTimeslots();
+    setTimeSlots(newTimeslots);
+  }, []);
+
   const initialValues = {
     firstName: '',
     lastName: '',
@@ -153,9 +158,7 @@ export const FormSkupina = () => {
           email: Yup.string()
             .email('Neplatná e-mailová adresa.')
             .required('Povinné pole'),
-          termin: Yup.string()
-            .oneOf(['value1', 'value2', 'value3', 'value4'], 'Nesprávny výber')
-            .required('Povinné pole'),
+          termin: Yup.string().required('Povinné pole'),
         })}
       >
         <Form>
@@ -178,13 +181,16 @@ export const FormSkupina = () => {
             placeholder="novakovaj@domena.com"
           />
           <MySelect label="Termín" name="termin">
-            <option value="" disabled selected hidden>
+            <option value="" disabled hidden>
               Vyberte si termín...
             </option>
-            <option value="value1">pondelok 16. 9. 2024 19:00-20:00</option>
-            <option value="value2">štvrtok 19. 9. 2024 19:00-20:00</option>
-            <option value="value3">pondelok 23. 9. 2024 19:00-20:00</option>
-            <option value="value4">štvrtok 26. 9. 2024 19:00-20:00</option>
+            {timeSlots.map((timeslot) => {
+              return (
+                <option value={timeslot} key={timeslot}>
+                  {timeslot}
+                </option>
+              );
+            })}
           </MySelect>
           <Button className="w-full mt-4" type="submit">
             Prídem

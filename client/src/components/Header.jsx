@@ -1,11 +1,13 @@
-import { useState } from 'react'
-import { UserRound } from 'lucide-react'
-import PropTypes from 'prop-types'
-import { Link } from 'react-router-dom'
+import { useState } from 'react';
+import { UserRound } from 'lucide-react';
+import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
 const HeaderItem = ({ href, children, borderColor, textColor, border }) => {
   return (
-    <li className={`${border} border-${borderColor} no-underline my-8 uppercase`}>
+    <li
+      className={`${border} border-${borderColor} no-underline my-8 uppercase`}
+    >
       <Link
         to={href}
         className={`font-medium py-2 px-3 text-${textColor} hover:text-blue-700 md:p-0`}
@@ -13,16 +15,16 @@ const HeaderItem = ({ href, children, borderColor, textColor, border }) => {
         {children}
       </Link>
     </li>
-  )
-}
+  );
+};
 
 HeaderItem.propTypes = {
   href: PropTypes.string.isRequired,
   children: PropTypes.node.isRequired,
   borderColor: PropTypes.string.isRequired,
   textColor: PropTypes.string.isRequired,
-  border: PropTypes.string.isRequired,
-}
+  border: PropTypes.string,
+};
 
 const AvatarButton = () => {
   return (
@@ -35,13 +37,10 @@ const AvatarButton = () => {
       data-dropdown-placement="bottom"
     >
       <span className="sr-only">Open user menu</span>
-      <UserRound
-        color="grey"
-        size="24"
-      />
+      <UserRound color="grey" size="24" />
     </button>
-  )
-}
+  );
+};
 
 const headerItems = [
   {
@@ -64,10 +63,10 @@ const headerItems = [
     href: '/hry',
     text: 'Hry',
   },
-]
+];
 
 export const Header = () => {
-  const [isNavOpen, setIsNavOpen] = useState(false)
+  const [isNavOpen, setIsNavOpen] = useState(false);
 
   return (
     <div>
@@ -97,18 +96,8 @@ export const Header = () => {
                   strokeLinecap="round"
                   strokeLinejoin="round"
                 >
-                  <line
-                    x1="18"
-                    y1="6"
-                    x2="6"
-                    y2="18"
-                  />
-                  <line
-                    x1="6"
-                    y1="6"
-                    x2="18"
-                    y2="18"
-                  />
+                  <line x1="18" y1="6" x2="6" y2="18" />
+                  <line x1="6" y1="6" x2="18" y2="18" />
                 </svg>
               </div>
               <ul className="flex flex-col items-center justify-between min-h-[250px]">
@@ -126,10 +115,7 @@ export const Header = () => {
               </ul>
             </div>
           </section>
-          <a
-            href="/"
-            className="text-2xl font-semibold whitespace-nowrap"
-          >
+          <a href="/" className="text-2xl font-semibold whitespace-nowrap">
             Ako sa neprejedať
           </a>
           <div className="DESKTOP-MENU items-center justify-between flex w-auto">
@@ -169,5 +155,5 @@ export const Header = () => {
       }
     `}</style>
     </div>
-  )
-}
+  );
+};
