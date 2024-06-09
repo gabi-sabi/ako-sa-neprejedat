@@ -37,6 +37,7 @@ export const getNextFourTimeslots = () => {
 
 export async function callBackend({ method = 'POST', url, payload, headers}) {
   const backendUrl = import.meta.env.VITE_BACKEND_BASE_URL ? `${import.meta.env.BACKEND_BASE_URL}/${url}` : `http://localhost:3500/${url}`
+
   try {
     const { data, status } = await axios({
       method,
