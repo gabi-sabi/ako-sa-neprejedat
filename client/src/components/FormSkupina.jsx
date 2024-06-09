@@ -7,8 +7,7 @@ import { Button } from '../components/ui/Button';
 import { Input } from '../components/ui/input';
 import { toast } from 'react-hot-toast';
 import PropTypes from 'prop-types';
-import axios from 'axios';
-import { getNextFourTimeslots } from '../lib/utils';
+import { callBackend, getNextFourTimeslots } from '../lib/utils';
 import { useEffect, useState } from 'react';
 
 const MyTextInput = ({ label, ...props }) => {
@@ -113,16 +112,24 @@ export const FormSkupina = () => {
         </div>
       </html>`;
     try {
-      await axios.post('/api/send', {
-        to: values.email,
-        subject: 'potvrzeni',
-        message: emailClientBody,
-      });
-      await axios.post('/api/send', {
-        to: 'gsabolova5@gmail.com', //TODO: vzmenit za admin mail:dietologicka@dietologicka.eu
-        subject: 'vytvoreni rezervace',
-        message: emailAdminBody,
-      });
+      await callBackend({
+          method: 'POST',
+          url: 'api/send',
+          payload: {
+            to: values.email,
+            subject: 'potvrzeni',
+            message: emailClientBody,
+          },
+      })
+      await callBackend({
+        method: 'POST',
+        url: 'api/send',
+        payload: {
+          to: 'katacek@gmail.com', 
+          subject: 'vytvoreni rezervace',
+          message: emailAdminBody,
+        },
+    })
     } catch (err) {
       alert(err);
     }
