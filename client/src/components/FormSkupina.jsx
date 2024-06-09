@@ -1,19 +1,20 @@
-import { Formik, Form, useField } from "formik";
-import * as Yup from "yup";
-import styled from "@emotion/styled";
-import { Select } from "../components/ui/select";
-import { Label } from "./ui/label";
-import { Button } from "../components/ui/Button";
-import { Input } from "../components/ui/input";
-import { toast } from "react-hot-toast";
-import PropTypes from "prop-types";
+import { Formik, Form, useField } from 'formik';
+import * as Yup from 'yup';
+import styled from '@emotion/styled';
+import { Select } from '../components/ui/select';
+import { Label } from './ui/label';
+import { Button } from '../components/ui/Button';
+import { Input } from '../components/ui/input';
+import { toast } from 'react-hot-toast';
+import PropTypes from 'prop-types';
+import axios from 'axios';
 
 const MyTextInput = ({ label, ...props }) => {
   const [field, meta] = useField(props);
   return (
     <>
       <Label htmlFor={props.id || props.name}>{label}</Label>
-      <Input className="text-input" {...field} {...props} />
+      <Input {...field} {...props} />
       {meta.touched && meta.error ? (
         <StyledErrorMessage>{meta.error}</StyledErrorMessage>
       ) : null}
@@ -43,7 +44,7 @@ const StyledErrorMessage = styled.div`
   margin-top: 0.25rem;
   margin-bottom: 0.25rem;
   &:before {
-    content: "❌ ";
+    content: '❌ ';
     font-size: 10px;
   }
   @media (prefers-color-scheme: dark) {
@@ -75,7 +76,7 @@ export const FormSkupina = () => {
     toast.success(
       <p className="text-center text-2xl">
         <span>
-          Rezervácia prebehla{" "}
+          Rezervácia prebehla{' '}
           <span className="font-bold text-light-green">úspešne!</span>
         </span>
         <br />
@@ -83,21 +84,31 @@ export const FormSkupina = () => {
       </p>,
       {
         duration: 8000,
-        position: "top-center",
+        position: 'top-center',
       },
     );
 
-  const handleSubmit = (values, { resetForm }) => {
+  const handleSubmit = async (values, { resetForm }) => {
     console.log(values);
+    try {
+      await axios.post('/api/send', {
+        to: values.email,
+        subject: 'subject',
+        message: 'ahoj',
+      });
+      alert('Email sent!');
+    } catch (err) {
+      alert(err);
+    }
     notify();
     resetForm();
   };
 
   const initialValues = {
-    firstName: "",
-    lastName: "",
-    email: "",
-    termin: "",
+    firstName: '',
+    lastName: '',
+    email: '',
+    termin: '',
   };
 
   return (
@@ -107,17 +118,17 @@ export const FormSkupina = () => {
         onSubmit={handleSubmit}
         validationSchema={Yup.object({
           firstName: Yup.string()
-            .max(15, "Meno musí obsahovať maximálne 15 písmen.")
-            .required("Povinné pole"),
+            .max(15, 'Meno musí obsahovať maximálne 15 písmen.')
+            .required('Povinné pole'),
           lastName: Yup.string()
-            .max(20, "Priezvisko musí obsahovať maximálne 20 písmen.")
-            .required("Povinné pole"),
+            .max(20, 'Priezvisko musí obsahovať maximálne 20 písmen.')
+            .required('Povinné pole'),
           email: Yup.string()
-            .email("Neplatná e-mailová adresa.`")
-            .required("Povinné pole"),
+            .email('Neplatná e-mailová adresa.')
+            .required('Povinné pole'),
           termin: Yup.string()
-            .oneOf(["value1", "value2", "value3", "value4"], "Nesprávny výber")
-            .required("Povinné pole"),
+            .oneOf(['value1', 'value2', 'value3', 'value4'], 'Nesprávny výber')
+            .required('Povinné pole'),
         })}
       >
         <Form>
@@ -141,8 +152,7 @@ export const FormSkupina = () => {
           />
           <MySelect label="Termín" name="termin">
             <option value="" disabled selected hidden>
-              {" "}
-              Vyberte si termín...{" "}
+              Vyberte si termín...
             </option>
             <option value="value1">pondelok 16. 9. 2024 19:00-20:00</option>
             <option value="value2">štvrtok 19. 9. 2024 19:00-20:00</option>

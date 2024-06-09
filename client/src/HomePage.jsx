@@ -1,10 +1,9 @@
 import { Link } from 'react-router-dom';
 import { ButtonBasic } from './components/ButtonBasic';
-import { EmailForm } from './components/EmailForm';
 
 export const HomePage = () => {
   return (
-    <><div className="flex flex-1 flex-col items-center justify-center gap-16 h-auto mx-4 lg:flex-row lg:mx-20">
+    <div className="flex flex-1 flex-col items-center justify-center gap-16 h-auto mx-4 lg:flex-row lg:mx-20">
       <div className=" w-full flex flex-col items-center gap-10 md:w-1/2 lg:gap-20">
         <h1 className="text-white text-center text-3xl md:text-4xl lg:text-5xl">
           <span className="font-thin break-all">AKO SA PRESTAŤ</span>
@@ -32,6 +31,6 @@ export const HomePage = () => {
           </Link>
         </div>
       </div>
-    </div><EmailForm /></>
+    </div>
   );
 };
