@@ -90,13 +90,40 @@ export const FormSkupina = () => {
 
   const handleSubmit = async (values, { resetForm }) => {
     console.log(values);
+
+    const emailClientBody = `
+      <html>
+        <div>
+          <p>Čauko, <b> ${values.firstName},</b></p>
+          <p>
+            potvrdzujem tvoju rezerváciu na skupinovú lekciu ${values.termin}, <br> Teším sa na teba
+           
+          </p>
+          <p>
+            Gabriela Sabolova, dietologicka
+          </p>
+        </div>
+      </html>`;
+    const emailAdminBody = `
+      <html>
+        <div>
+          <p>Čauko, <b> Gabriela,</b></p>
+          <p>
+            rezerváciu na skupinovú lekciu ${values.termin} si udelal/a ${values.firstName} ${values.lastName}
+          </p>
+        </div>
+      </html>`;
     try {
       await axios.post('/api/send', {
         to: values.email,
-        subject: 'subject',
-        message: 'ahoj',
+        subject: 'potvrzeni',
+        message: emailClientBody,
       });
-      alert('Email sent!');
+      await axios.post('/api/send', {
+        to: 'gsabolova5@gmail.com', //TODO: vzmenit za admin mail:dietologicka@dietologicka.eu
+        subject: 'vytvoreni rezervace',
+        message: emailAdminBody,
+      });
     } catch (err) {
       alert(err);
     }
