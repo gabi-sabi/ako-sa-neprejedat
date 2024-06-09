@@ -1,19 +1,27 @@
 # syntax=docker/dockerfile:1.4
 
-FROM node:lts AS development
+# Stage 1: Build the React app
+FROM node:lts AS build
 
-WORKDIR /code
-COPY package.json /code/package.json
-COPY package-lock.json /code/package-lock.json
+WORKDIR /app
+COPY package-lock.json /app/package-lock.json
+COPY package.json /app/package.json
 RUN npm ci
-COPY . /code
+COPY . /app
 
 RUN npm run build
 
-# Debugging steps to list contents and show package.json
-RUN ls -la /code
-RUN cat /code/package.json
+# Stage 2: Serve with NGINX
+FROM nginx:alpine
 
-EXPOSE 4173 5173
+# Copy built files from the previous stage
+COPY --from=build /app/dist /usr/share/nginx/html
 
-CMD [ "npm", "run", "dev" ]
+# Copy custom NGINX configuration, if necessary
+# You can create an nginx.conf file and customize it as needed
+# COPY nginx.conf /etc/nginx/nginx.conf
+
+EXPOSE 80
+
+# Run NGINX in the foreground
+CMD ["nginx", "-g", "daemon off;"]
