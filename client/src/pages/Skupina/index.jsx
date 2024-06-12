@@ -36,7 +36,7 @@ export const SkupinaPage = () => {
                   811 09 Bratislava)"
                 swift="BREXSKBX"
               />
-              . Link k pripojeniu posielam na e-mail vždy bezprostredne po
+              . Link k pripojeniu posielam na e-mail do 24 hodín po
               obdržaní platby. Teším sa na vás.
             </p>
           </div>

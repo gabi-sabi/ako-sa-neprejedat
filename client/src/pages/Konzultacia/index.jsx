@@ -19,8 +19,7 @@ export const KonzultaciaPage = () => {
         <div className="text-justify text-lg">
           <p>
             Ak máte záujem o individuálnu konzultáciu týkajúcu sa prejedania
-            alebo emočného hladu, napíšte mi e-mail
-            (dietologicka@dietologicka.eu) - odpoviem každému, len poprosím o
+            alebo emočného hladu, napíšte mi e-mail na moju adresu dietologicka@dietologicka.eu - odpoviem každému, len poprosím o
             Vašu trpezlivosť pri čakaní na odpoveď ☺.
           </p>
           <br />

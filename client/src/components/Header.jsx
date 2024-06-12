@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { UserRound } from 'lucide-react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
@@ -24,22 +23,6 @@ HeaderItem.propTypes = {
   borderColor: PropTypes.string.isRequired,
   textColor: PropTypes.string.isRequired,
   border: PropTypes.string,
-};
-
-const AvatarButton = () => {
-  return (
-    <button
-      type="button"
-      className="flex text-lg bg-white  rounded-full p-2 md:me-0 focus:ring-2 focus:ring-gray-30 "
-      id="user-menu-button"
-      aria-expanded="false"
-      data-dropdown-toggle="user-dropdown"
-      data-dropdown-placement="bottom"
-    >
-      <span className="sr-only">Open user menu</span>
-      <UserRound color="grey" size="24" />
-    </button>
-  );
 };
 
 const headerItems = [
@@ -132,7 +115,6 @@ export const Header = () => {
               ))}
             </ul>
           </div>
-          <AvatarButton />
         </div>
       </nav>
       <style>{`

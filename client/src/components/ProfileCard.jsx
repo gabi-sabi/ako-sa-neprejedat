@@ -1,20 +1,26 @@
 import PropTypes from 'prop-types';
 
-export const AboutUs = ({ img, name, email, children }) => {
+export const AboutUs = ({ img, name, email, children, web }) => {
   return (
     <>
       <div className="flex flex-col items-center justify-center w-4/12 p-6">
-        <h2 className="text-bold text-center text-4xl">{name}</h2>
         <img
           src={img}
           alt={`ProfilePicture${name}`}
           className="rounded-full h-48 m-4"
         />
+         <h2 className="text-bold text-center text-4xl">{name}</h2>
         {children}
-        <span className="font-bold m-8">
+        <span className="font-bold m-4">
           E-mail:
           <a className="underline" href={`mailto:${email}`}>
             {email}
+          </a>
+        </span>
+        <span className="font-bold m-4">
+        Web:
+          <a className="underline" href={web}>
+            {web}
           </a>
         </span>
       </div>
