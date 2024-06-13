@@ -9,7 +9,7 @@ export const ONasPage = () => {
         img={skupina_about_cut}
          name="Gabriela Sabolová"
         email="gsabolova5@gmail.com"
-         web="https://www.instagram.com/gabsabolova/"
+         webUrl="https://www.instagram.com/gabsabolova/"
       >
         <p className="leading-normal my-8">
           Prejedať som sa začala, keď som v 5. triede prestúpila na novú školu. Hory sladkostí mi pomohli zabudnúť, že nemám žiadnych kamarátov. Neskôr som objavila, že prejedanie otupí nielen osamelosť, ale aj stres, zlosť a smútok.
@@ -20,7 +20,7 @@ export const ONasPage = () => {
         img={konz_about_cut}
           name="Gabriela Sabolová"
         email="dietologicka@dietologicka.eu"
-        web="http://www.dietologicka.eu/"
+        webUrl="http://www.dietologicka.eu/"
       >
         <p className="leading-normal my-8">
         Pokiaľ mi pamäť siaha, nikdy som nemohla jesť tak bezstarostne ako ostatní ľudia. V detstve ma často bolievalo bruško, zvracala som po každej oslave. Snažila som sa pozorovať, ktoré potraviny a jedlá mi nerobia dobre...  </p>

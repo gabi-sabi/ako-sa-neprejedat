@@ -10,7 +10,7 @@ export function cn(...inputs) {
 // get next four timeslots for Monday and Thursday at 19:00
 export const getNextFourTimeslots = () => {
   const timeslots = [];
-  const today = dayjs(); //string jako na řádku 28
+  const today = dayjs('2024-09-14 20:00:00'); //string jako na řádku 28 / dayjs()
   const daysOfWeek = { Monday: 1, Thursday: 4 }; // dayjs uses 0 (Sunday) to 6 (Saturday)
 
   let dayToCheck = today;

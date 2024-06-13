@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 
-export const AboutUs = ({ img, name, email, children, web }) => {
+export const AboutUs = ({ img, name, email, children, webUrl }) => {
   return (
     <>
       <div className="flex flex-col items-center justify-center w-4/12 p-6">
@@ -19,8 +19,8 @@ export const AboutUs = ({ img, name, email, children, web }) => {
         </span>
         <span className="font-bold m-4">
         Web:
-          <a className="underline" href={web}>
-            {web}
+          <a className="underline" href={webUrl}>
+            {webUrl}
           </a>
         </span>
       </div>
