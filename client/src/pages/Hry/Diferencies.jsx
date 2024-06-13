@@ -75,16 +75,16 @@ export const DiferenciesPage = () => {
       </div>
       <div className=" flex justify-between py-6 px-6 md:px-16 lg:px-32">
         <span className="text-white font-bold text-xl">
-          nalezeno {found.length}/{currentGameState.differences.length}
+          nájdených {found.length}/{currentGameState.differences.length}
         </span>
         {/* TODO(Gabika): finalise text here */}
-        <span className="text-white">najdi vsetky rozdiely</span>
+        <span className="text-white">Nájdi všetky rozdiely</span>
         <Button
           disabled={found.length < currentGameState.differences.length}
           onClick={goToNextGame}
           className="text-xl"
         >
-          dalsi
+          Ďalší
         </Button>
       </div>
     </div>
