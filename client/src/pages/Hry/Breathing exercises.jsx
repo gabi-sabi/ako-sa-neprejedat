@@ -5,8 +5,6 @@ export const BreathingExercisesPage = () => {
   const [isExpanding, setIsExpanding] = useState(true);
   const [size, setSize] = useState(200);
 
-  const Bubble = ({}) => {};
-
   useEffect(() => {
     const interval = setInterval(() => {
       setNumber((previousNumber) => {
