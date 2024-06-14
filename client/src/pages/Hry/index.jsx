@@ -21,8 +21,8 @@ export const HryPage = () => {
   return (
     <>
       <main className="flex flex-col items-start justify-center font-sans h-auto gap-4 px-12 md:px-32 lg:px-64">
-        <GameButton to="/dychacie-cvicenie">Dychacie cvicenie</GameButton>
-        <GameButton to="/pocitanie">Pocitanie</GameButton>
+        <GameButton to="/dychacie-cvicenie">Dýchacie cvičenie</GameButton>
+        <GameButton to="/pocitanie">Počítanie</GameButton>
         <GameButton to="/rozdiely">Rozdiely</GameButton>
       </main>
     </>

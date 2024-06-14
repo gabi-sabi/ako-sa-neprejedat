@@ -93,12 +93,15 @@ export const FormSkupina = () => {
     const emailClientBody = `
       <html>
         <div>
-          <p>Čauko, <b> ${values.firstName},</b></p>
+          <p>Zdravím,</p>
           <p>
-            potvrdzujem tvoju rezerváciu na skupinovú lekciu ${values.termin}, <br> Teším sa na teba
+            potvrdzujem vašu rezerváciu na podpornú skupinu ${values.termin}. <br> Teším sa na vás.
           </p>
           <p>
-            Gabriela Sabolova, dietologicka
+            S pozdravom
+          </p>
+          <p>
+            Gabi Sabi
           </p>
         </div>
       </html>`;
