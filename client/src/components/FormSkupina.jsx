@@ -74,19 +74,33 @@ MySelect.propTypes = {
 
 export const FormSkupina = () => {
   const notify = () =>
-    toast.success(
-      <p className="text-center text-2xl">
-        <span>
-          Rezervácia prebehla{' '}
-          <span className="font-bold text-light-green">úspešne!</span>
-        </span>
-        <br />
-        <span>Teším sa na vás online.</span>
-      </p>,
+    toast.promise(handleSubmit, 
       {
-        duration: 8000,
-        position: 'top-center',
-      },
+      loading: 'Spracovávame vašu rezerváciu.',
+      success: <p className="text-center text-2xl">
+      <span>
+        Rezervácia prebehla{' '}
+        <span className="font-bold text-light-green">úspešne!</span>
+      </span>
+      <br />
+      <span>Teším sa na vás online.</span>
+    </p>,
+      error: 'Error when fetching',
+    },
+  {
+    style:{
+     
+      position: 'top-center',
+      minWidth: '250px',
+    },
+    success: {
+      duration: 8000,
+      
+    },
+        
+  }
+   
+      
     );
 
   const handleSubmit = async (values, { resetForm }) => {
