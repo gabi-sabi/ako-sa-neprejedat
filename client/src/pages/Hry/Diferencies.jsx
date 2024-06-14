@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useMemo, useState } from 'react';
+import { useCallback, useMemo, useState } from 'react';
 import { gameData } from './gameData';
 import { isWithinDifferenceBoxes } from './gameLogic';
 import { Button } from '@/components/ui/Button';
@@ -77,7 +77,6 @@ export const DiferenciesPage = () => {
         <span className="text-white font-bold text-xl">
           nájdených {found.length}/{currentGameState.differences.length}
         </span>
-        {/* TODO(Gabika): finalise text here */}
         <span className="text-white">Nájdi všetky rozdiely</span>
         <Button
           disabled={found.length < currentGameState.differences.length}
