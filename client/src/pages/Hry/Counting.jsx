@@ -3,24 +3,23 @@ import { useEffect, useState } from 'react';
 export const CountingPage = () => {
   const [firstNumber, setFirstNumber] = useState(null);
   const [secondNumber, setSecondNumber] = useState(null);
-  const [userAnswear, setUserAnswear] = useState(undefined);
+  const [userAnswer, setUserAnswer] = useState('');
   const [message, setMessage] = useState('');
 
   const generateNumbers = () => {
     setFirstNumber(Math.round(Math.random() * 20));
     setSecondNumber(Math.round(Math.random() * 20));
-    setUserAnswear('');
+    setUserAnswer('');
   };
 
   useEffect(() => {
     generateNumbers();
   }, []);
-  console.log(firstNumber, secondNumber);
 
   const checkResult = (e) => {
     e.preventDefault();
-    const userAnswearNum = Number(userAnswear);
-    if (userAnswearNum === firstNumber + secondNumber) {
+    const userAnswerNum = Number(userAnswer);
+    if (userAnswerNum === firstNumber + secondNumber) {
       setMessage('spravne');
       setTimeout(() => {
         generateNumbers();
@@ -28,7 +27,7 @@ export const CountingPage = () => {
       }, 2000);
     } else {
       setMessage('Zkus to jeste jednou');
-      setUserAnswear('');
+      setUserAnswer('');
     }
   };
 
@@ -40,13 +39,13 @@ export const CountingPage = () => {
           <input
             type="number"
             className="bg-light-green bg-opacity-25 rounded w-40 outline-none"
-            value={userAnswear}
+            value={userAnswer}
             onChange={(event) => {
-              setUserAnswear(event.target.value);
+              setUserAnswer(event.target.value);
             }}
           ></input>
         </label>
-        <button className="text-base font-bold text-green-900 m-12 bg-light-orange p-2 m-12">
+        <button className="text-base font-bold text-green-900 m-12 bg-light-orange p-2">
           zkontroluj
         </button>
       </form>
