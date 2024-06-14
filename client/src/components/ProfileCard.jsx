@@ -3,13 +3,13 @@ import PropTypes from 'prop-types';
 export const AboutUs = ({ img, name, email, children, webUrl }) => {
   return (
     <>
-      <div className="flex flex-col items-center justify-center w-4/12 p-6">
+      <div className="flex flex-col items-center justify-center p-6">
         <img
           src={img}
           alt={`ProfilePicture${name}`}
           className="rounded-full h-48 m-4"
         />
-         <h2 className="text-bold text-center text-4xl">{name}</h2>
+        <h2 className="text-bold text-center text-4xl">{name}</h2>
         {children}
         <span className="font-bold m-4">
           E-mail:
@@ -18,7 +18,7 @@ export const AboutUs = ({ img, name, email, children, webUrl }) => {
           </a>
         </span>
         <span className="font-bold m-4">
-        Web:
+          Web:
           <a className="underline" href={webUrl}>
             {webUrl}
           </a>
