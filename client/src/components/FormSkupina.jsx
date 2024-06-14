@@ -74,33 +74,19 @@ MySelect.propTypes = {
 
 export const FormSkupina = () => {
   const notify = () =>
-    toast.promise(handleSubmit, 
+    toast.success(
+      <p className="text-center text-2xl">
+        <span>
+          Rezervácia prebehla{' '}
+          <span className="font-bold text-light-green">úspešne!</span>
+        </span>
+        <br />
+        <span>Teším sa na vás online.</span>
+      </p>,
       {
-      loading: 'Spracovávame vašu rezerváciu.',
-      success: <p className="text-center text-2xl">
-      <span>
-        Rezervácia prebehla{' '}
-        <span className="font-bold text-light-green">úspešne!</span>
-      </span>
-      <br />
-      <span>Teším sa na vás online.</span>
-    </p>,
-      error: 'Error when fetching',
-    },
-  {
-    style:{
-     
-      position: 'top-center',
-      minWidth: '250px',
-    },
-    success: {
-      duration: 8000,
-      
-    },
-        
-  }
-   
-      
+        duration: 8000,
+        position: 'top-center',
+      },
     );
 
   const handleSubmit = async (values, { resetForm }) => {
@@ -109,22 +95,22 @@ export const FormSkupina = () => {
         <div>
           <p>Zdravím,</p>
           <p>
-            potvrdzujem vašu rezerváciu na podpornú skupinu ${values.termin}. <br> Teším sa na vás.
+            potvrdzujem vašu rezerváciu na podpornú skupinu ${values.termin}.  Teším sa na vás.
           </p>
           <p>
             S pozdravom
           </p>
           <p>
-            Gabi Sabi
+            Gabriela Sabolová
           </p>
         </div>
       </html>`;
     const emailAdminBody = `
       <html>
         <div>
-          <p>Čauko, <b> Gabriela,</b></p>
+          <p>Ahoj, <b> Gabika,</b></p>
           <p>
-            rezerváciu na skupinovú lekciu ${values.termin} si udelal/a ${values.firstName} ${values.lastName}
+            rezerváciu na skupinovú lekciu ${values.termin} si vytvoril/a ${values.firstName} ${values.lastName}
           </p>
         </div>
       </html>`;
@@ -134,7 +120,7 @@ export const FormSkupina = () => {
           url: 'api/send',
           payload: {
             to: values.email,
-            subject: 'potvrzeni',
+            subject: 'Potvrdenie rezervácie',
             message: emailClientBody,
           },
       })
@@ -143,7 +129,7 @@ export const FormSkupina = () => {
         url: 'api/send',
         payload: {
           to: 'gsabolova5@gmail.com', 
-          subject: 'vytvoreni rezervace',
+          subject: 'Nová rezervácia',
           message: emailAdminBody,
         },
     })
