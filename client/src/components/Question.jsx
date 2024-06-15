@@ -13,7 +13,7 @@ export const Question = ({ area, onSelect }) => {
       <div className="flex flex-1 flex-col justify-center items-stretch">
         <div className="grid grid-cols-2 justify-items-stretch align-items-stretch text-base gap-5 md:text-xl">
           <button
-            className={`cursor-pointer flex flex-1 flex-row justify-center items-center rounded-xl w-full h-full p-4 ${
+            className={`cursor-pointer flex flex-1 flex-row justify-center items-center rounded-xl w-full p-4 ${
               responseType === "respFyzio" ? "bg-light-green" : "bg-white"
             }`}
             onClick={() => setResponseType("respFyzio")}
@@ -21,7 +21,7 @@ export const Question = ({ area, onSelect }) => {
             {area.respFyzio}
           </button>
           <button
-            className={`cursor-pointer flex flex-1 flex-row justify-center items-center rounded-xl w-full h-full p-4 ${
+            className={`cursor-pointer flex flex-1 flex-row justify-center items-center rounded-xl w-full p-4 ${
               responseType === "respEmot" ? "bg-light-red" : "bg-white"
             }`}
             onClick={() => setResponseType("respEmot")}
