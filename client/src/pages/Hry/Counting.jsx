@@ -1,8 +1,13 @@
 import { useEffect, useState } from 'react';
+import { cva } from 'class-variance-authority';
 
 export const CountingPage = () => {
-  const [firstNumber, setFirstNumber] = useState(null);
-  const [secondNumber, setSecondNumber] = useState(null);
+  const [firstNumber, setFirstNumber] = useState(() =>
+    Math.round(Math.random() * 20),
+  );
+  const [secondNumber, setSecondNumber] = useState(() =>
+    Math.round(Math.random() * 20),
+  );
   const [userAnswer, setUserAnswer] = useState('');
   const [message, setMessage] = useState('');
 
@@ -12,16 +17,11 @@ export const CountingPage = () => {
     setUserAnswer('');
   };
 
-  useEffect(() => {
-    generateNumbers();
-  }, []);
-  console.log(firstNumber, secondNumber);
-
   const checkResult = (e) => {
     e.preventDefault();
     const userAnswerNum = Number(userAnswer);
     if (userAnswerNum === firstNumber + secondNumber) {
-      setMessage('spravne');
+      setMessage('Spravne');
       setTimeout(() => {
         generateNumbers();
         setMessage('');
@@ -32,10 +32,22 @@ export const CountingPage = () => {
     }
   };
 
+  const messageClasses = cva(
+    'text-2l font-bold text-center fixed bottom-40 lg:text-8xl md:text-lg sm:text:lg',
+    {
+      variants: {
+        message: {
+          Spravne: 'text-light-green',
+          'Zkus to jeste jednou': 'text-light-red',
+        },
+      },
+    },
+  );
+
   return (
-    <div className="bg-white flex flex-col justify-center items-center text-8xl ">
+    <div className="bg-white flex flex-col justify-center items-center  ">
       <form className="flex flex-col items-center" onSubmit={checkResult}>
-        <label className="text-green-900">
+        <label className="text-green-900 lg:text-8xl md:text-lg sm:text-lg">
           {firstNumber}+{secondNumber}=
           <input
             type="number"
@@ -46,22 +58,11 @@ export const CountingPage = () => {
             }}
           ></input>
         </label>
-        <button className="text-base font-bold text-green-900 m-12 bg-light-orange p-2 m-12">
+        <button className="text-base font-bold text-green-900 m-12 bg-light-orange p-2 ">
           zkontroluj
         </button>
       </form>
-      <p
-        className={`text-2l font-bold text-center fixed bottom-40
-           ${
-             message === 'spravne'
-               ? 'text-light-green'
-               : message === 'Zkus to jeste jednou'
-                 ? 'text-light-red'
-                 : ''
-           }`}
-      >
-        {message}
-      </p>
+      <p className={messageClasses({ message })}>{message}</p>
     </div>
   );
 };
