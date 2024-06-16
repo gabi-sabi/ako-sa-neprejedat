@@ -42,11 +42,16 @@ export const BreathingExercisesPage = () => {
     alignItems: 'center',
     fontSize: '4rem',
     transition: 'width 1s, height 1s',
+    opacity: '80%',
+    position: 'absolute',
+    top: '50%',
+    left: '50%',
+    transform: 'translate(-50%, -50%)',
   };
 
   return (
-    <div className="bg-white flex flex-col justify-center items-center relative">
-      <p className="absolute top-6 text-lg color-green-900">
+    <div className="bg-white justify-center items-center  ">
+      <p className=" text-green-900 text-center p-3 text-xs lg:text-2xl md:text-l sm:text-xs">
         Vykonajte toto jednoduché cvičenie dýchania:
         <br />
         Sledujte objekt, ako sa zväčšuje a zmenšuje. Keď sa objekt zväčšuje,
@@ -54,12 +59,13 @@ export const BreathingExercisesPage = () => {
         Keď sa objekt zmenšuje, vydychujte pomaly a úplne.
         <br /> Opakujte tento cyklus sústredene a pokojne.
       </p>
+      <div className="relative w-full h-full hidden lg:block">
+        <div className="w-40 h-40 rounded-full bg-light-orange opacity-80 shadow-2xl absolute inset-40 "></div>
+        <div className="w-80 h-80 rounded-full bg-dark-blue opacity-80 shadow-2xl absolute right-20 bottom-20"></div>
+        <div className="w-60 h-60 rounded-full bg-light-yellow opacity-80 shadow-2xl absolute left-80  bottom-25"></div>
+        <div className="w-60 h-60 rounded-full bg-light-red opacity-80 shadow-2xl absolute right-80  top-20"></div>
+      </div>
       <div style={circleStyle}>{number}</div>
-
-      <div className="w-40 h-40 rounded-full bg-light-orange opacity-80 shadow-2xl absolute inset-40 "></div>
-      <div className="w-80 h-80 rounded-full bg-dark-blue opacity-80 shadow-2xl absolute right-20 bottom-20"></div>
-      <div className="w-60 h-60 rounded-full bg-light-yellow opacity-80 shadow-2xl absolute left-80  bottom-20"></div>
-      <div className="w-60 h-60 rounded-full bg-light-red opacity-80 shadow-2xl absolute right-80  top-20"></div>
     </div>
   );
 };
