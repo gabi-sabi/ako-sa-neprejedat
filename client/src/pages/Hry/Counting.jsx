@@ -1,8 +1,13 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
+import { cva } from 'class-variance-authority';
 
 export const CountingPage = () => {
-  const [firstNumber, setFirstNumber] = useState(null);
-  const [secondNumber, setSecondNumber] = useState(null);
+  const [firstNumber, setFirstNumber] = useState(() =>
+    Math.round(Math.random() * 20),
+  );
+  const [secondNumber, setSecondNumber] = useState(() =>
+    Math.round(Math.random() * 20),
+  );
   const [userAnswer, setUserAnswer] = useState('');
   const [message, setMessage] = useState('');
 
@@ -12,15 +17,11 @@ export const CountingPage = () => {
     setUserAnswer('');
   };
 
-  useEffect(() => {
-    generateNumbers();
-  }, []);
-
   const checkResult = (e) => {
     e.preventDefault();
     const userAnswerNum = Number(userAnswer);
     if (userAnswerNum === firstNumber + secondNumber) {
-      setMessage('spravne');
+      setMessage('Spravne');
       setTimeout(() => {
         generateNumbers();
         setMessage('');
@@ -30,6 +31,15 @@ export const CountingPage = () => {
       setUserAnswer('');
     }
   };
+
+  const messageClasses = cva('text-2l font-bold text-center fixed bottom-40', {
+    variants: {
+      message: {
+        Spravne: 'text-light-green',
+        'Zkus to jeste jednou': 'text-light-red',
+      },
+    },
+  });
 
   return (
     <div className="bg-white flex flex-col justify-center items-center text-8xl ">
@@ -49,18 +59,7 @@ export const CountingPage = () => {
           zkontroluj
         </button>
       </form>
-      <p
-        className={`text-2l font-bold text-center fixed bottom-40
-           ${
-             message === 'spravne'
-               ? 'text-light-green'
-               : message === 'Zkus to jeste jednou'
-                 ? 'text-light-red'
-                 : ''
-           }`}
-      >
-        {message}
-      </p>
+      <p className={messageClasses({ message })}>{message}</p>
     </div>
   );
 };
