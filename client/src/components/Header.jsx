@@ -2,13 +2,14 @@ import { useState } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
-const HeaderItem = ({ href, children, borderColor, textColor, border }) => {
+const HeaderItem = ({ href, children, borderColor, textColor, border, onClick }) => {
   return (
     <li
       className={`${border} border-${borderColor} no-underline my-8 uppercase`}
     >
       <Link
         to={href}
+        onClick={onClick}
         className={`font-medium py-2 px-3 text-${textColor} hover:text-blue-700 md:p-0`}
       >
         {children}
@@ -91,6 +92,7 @@ export const Header = () => {
                     textColor="black"
                     borderColor="black"
                     border="border-b"
+                    onClick={() => setIsNavOpen(false)}
                   >
                     {item.text}
                   </HeaderItem>
