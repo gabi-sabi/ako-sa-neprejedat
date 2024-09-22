@@ -26,9 +26,6 @@ export const HomePage = () => {
           <Link to="/konzultacia">
             <ButtonBasic color="dark-blue">Konzultácia</ButtonBasic>
           </Link>
-          <Link to="/hry">
-            <ButtonBasic color="light-yellow">Hry</ButtonBasic>
-          </Link>
         </div>
       </div>
     </div>
