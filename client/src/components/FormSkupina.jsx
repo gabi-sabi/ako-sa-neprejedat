@@ -110,7 +110,7 @@ export const FormSkupina = () => {
         <div>
           <p>Ahoj, <b> Gabika,</b></p>
           <p>
-            rezerváciu na skupinovú lekciu ${values.termin} si vytvoril/a ${values.firstName} ${values.lastName}
+            rezerváciu na skupinovú lekciu ${values.termin} si vytvoril/a ${values.firstName} ${values.lastName} s mailovou adresou ${values.email}
           </p>
         </div>
       </html>`;
