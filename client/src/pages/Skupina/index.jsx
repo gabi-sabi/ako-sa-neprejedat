@@ -21,7 +21,7 @@ export const SkupinaPage = () => {
               V našej online podpornej skupine nájdete kontinuálnu podporu,
               empatické povzbudenie a overené praktické nástroje na zvládnutie
               akýchkoľvek záchvatov prejedania. Stretávame sa online pravideľne
-              v pondelok a vo štvrtok od 19:00 do 20:00 na platforme Meet.
+              v pondelok a vo štvrtok od 18:00 do 19:00 na platforme Meet.
               Môžete sa samozrejme zúčastniť aj pod prezývkou a vôbec nemusíte
               mať zapnutú kameru.
             </p>
